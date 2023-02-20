@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="hirms.list">
+      <field name="name">hirms list</field>
+      <field name="model">hirms.hirms</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="hirms.action_window">
+      <field name="name">hirms window</field>
+      <field name="res_model">hirms.hirms</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="hirms.action_server">
+      <field name="name">hirms server</field>
+      <field name="model_id" ref="model_hirms_hirms"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="hirms" id="hirms.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="hirms.menu_1" parent="hirms.menu_root"/>
+    <menuitem name="Menu 2" id="hirms.menu_2" parent="hirms.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="hirms.menu_1_list" parent="hirms.menu_1"
+              action="hirms.action_window"/>
+    <menuitem name="Server to list" id="hirms" parent="hirms.menu_2"
+              action="hirms.action_server"/>
+-->
+  </data>
+</odoo>
