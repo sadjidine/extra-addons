@@ -19,29 +19,14 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-{
-    'name': "HIRMS",
-    'description': """
-    Healthcare Insurance Records Management System.
-    """,
-    'summary': """
-    HIRMS module which is used to mange the healthcare insurance functionalities.
-    """,
-    'author': "SIGEM",
-    'company': "SIGEM",
-    'maintainer': 'Salif Sadjidine OMBOTIMBE',
-    'website': "https://www.sigem.pro",
-    "license": "AGPL-3",
-    'category': 'Insurance',
-    'sequence': -100,
-    'version': '15.0.1.0.0',
-    'depends': ['base', 'website'],
-    'data': [
-        'security/ir.model.access.csv',
-        'data/insured_sequence.xml',
-        'views/insured_view.xml',
-    ],
-    'installable': True,
-    'application': True,
 
-}
+from odoo import models, fields, api
+from odoo.tools.populate import compute
+from odoo.tools.translate import _
+
+class Insured(models.Model):
+    _name = 'hirms.insured'
+    _description = 'insured'
+    inherits = {'res.partner': "partner_id"}
+
+
