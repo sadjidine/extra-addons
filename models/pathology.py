@@ -38,6 +38,7 @@ class Pathology(models.Model):
     speciality_id = fields.Many2one(
         comodel_name="hirms.speciality",
         string="Related Speciality",
+        ondelete="restrict",
         required=True,
     )
     chronic = fields.Boolean(

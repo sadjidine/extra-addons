@@ -1,2 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_insured_user,Insured User Access,model_hirms_insured,base.group_user,1,1,1,1
+access_insured_user,Insured User Access,model_hirms_insured,base.group_user,1,1,1,0
+access_category_user,Category User Access,model_hirms_category,base.group_user,1,1,1,0
+access_speciality_user,Speciality User Access,model_hirms_speciality,base.group_user,1,1,1,0
+access_pathology_user,Pathology User Access,model_hirms_pathology,base.group_user,1,1,1,0
+access_codification_user,Codification User Access,model_hirms_codification,base.group_user,1,1,1,0
+access_molecule_user,Molecule User Access,model_hirms_molecule,base.group_user,1,1,1,0
+access_medication_form_user,Medication Form User Access,model_hirms_medication_form,base.group_user,1,1,1,0
+access_therapeutic_route_user,Therapeutic Route Form User Access,model_hirms_therapeutic_route,base.group_user,1,1,1,0
+access_medication_user,Medication Form User Access,model_hirms_medication,base.group_user,1,1,1,0

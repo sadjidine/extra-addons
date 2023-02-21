@@ -27,18 +27,20 @@
     'summary': """
     HIRMS module which is used to mange the healthcare insurance functionalities.
     """,
-    'author': "SIGEM",
+    'author': "Salif Sadjidine OMBOTIMBE",
     'company': "SIGEM",
     'maintainer': 'Salif Sadjidine OMBOTIMBE',
     'website': "https://www.sigem.pro",
     "license": "AGPL-3",
     'category': 'Insurance',
-    'sequence': -100,
+    # 'sequence': -100,
     'version': '15.0.1.0.0',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
         'data/insured_sequence.xml',
+        'views/category.xml',
+        'views/hirms_menu.xml',
         'views/insured_view.xml',
     ],
     'installable': True,

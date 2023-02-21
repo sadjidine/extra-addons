@@ -38,6 +38,7 @@ class Codification(models.Model):
     category_id = fields.Many2one(
         comodel_name="hirms.category",
         string="Related Category",
+        ondelete="restrict",
         required=True,
     )
     active = fields.Boolean(

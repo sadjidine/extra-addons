@@ -20,3 +20,9 @@
 #
 #############################################################################
 from . import insured
+from . import category
+from . import speciality
+from . import pathology
+from . import codification
+from . import nomenclature
+from . import medication

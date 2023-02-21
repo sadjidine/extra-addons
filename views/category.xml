@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Category form view-->
+    <record id="category_form" model="ir.ui.view">
+        <field name="name">hirms.category.form</field>
+        <field name="model">hirms.category</field>
+        <field name="arch" type="xml">
+            <form string="Category form">
+                    <group>
+                        <group name="Category" string="Category details">
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Category tree view-->
+    <record id="category_tree" model="ir.ui.view">
+        <field name="name">hirms.category.tree</field>
+        <field name="model">hirms.category</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of category menu-->
+    <record model="ir.actions.act_window" id="category_action">
+        <field name="name">Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create category
+            </p>
+            <p>
+                You can create categories data here.
+            </p>
+        </field>
+    </record>
+</odoo>

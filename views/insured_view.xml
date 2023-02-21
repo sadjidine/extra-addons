@@ -56,17 +56,16 @@
             </p>
         </field>
     </record>
-
-    <menuitem name="HIRMS"
-              id="hirms_root_menu"
-              sequence="9"/>
-    <menuitem name="membership"
-              id="membership_base_menu"
-              parent="hirms_root_menu"
-              sequence="7"/>
-    <menuitem name="Insured"
-              id="insured_menu"
-              parent="membership_base_menu"
-              action="insured_action"
-              sequence="8"/>
+<!--    <menuitem name="HIRMS"-->
+<!--              id="hirms_root_menu"-->
+<!--              sequence="9"/>-->
+<!--    <menuitem name="membership"-->
+<!--              id="membership_base_menu"-->
+<!--              parent="hirms_root_menu"-->
+<!--              sequence="7"/>-->
+<!--    <menuitem name="Insured"-->
+<!--              id="insured_menu"-->
+<!--              parent="membership_base_menu"-->
+<!--              action="insured_action"-->
+<!--              sequence="8"/>-->
 </odoo>

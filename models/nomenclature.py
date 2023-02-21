@@ -39,6 +39,7 @@ class Nomenclature(models.Model):
     codification_id = fields.Many2one(
         comodel_name="hirms.codification",
         string="Related Codification",
+        ondelete="restrict",
         required=True,
     )
     coefficient = fields.Integer(
@@ -53,9 +54,9 @@ class Nomenclature(models.Model):
     quantity_required = fields.Boolean(
         help="Checked if the quantity of this procedure is required!",
     )
-    waiting_period = fields.Integer(
+    pending_period = fields.Integer(
         default=0,
-        help="Set the waiting period (timeout) between 2 procedures for this nomenclature!"
+        help="Set the waiting period (timeout) in days, between 2 procedures for this nomenclature!"
     )
     minimum_age = fields.Integer(
         default=0,
