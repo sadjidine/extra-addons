@@ -19,30 +19,46 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-{
-    'name': "HIRMS",
-    'description': """
-    Healthcare Insurance Records Management System.
-    """,
-    'summary': """
-    HIRMS module which is used to mange the healthcare insurance functionalities.
-    """,
-    'author': "SIGEM",
-    'company': "SIGEM",
-    'maintainer': 'Salif Sadjidine OMBOTIMBE',
-    'website': "https://www.sigem.pro",
-    "license": "AGPL-3",
-    'category': 'Insurance',
-    'sequence': -100,
-    'version': '15.0.1.0.0',
-    'depends': ['base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'data/insured_sequence.xml',
-        'views/insured_view.xml',
-    ],
-    'installable': True,
-    'auto_install': False,
-    'application': True,
 
-}
+from odoo import models, fields, api
+
+
+class Pathology(models.Model):
+    _name = 'hirms.pathology'
+    _description = 'medical pathologies'
+
+    name = fields.Char(
+        string="Pathology Code",
+        required=True,
+    )
+    label = fields.Char(
+        string="Pathology name",
+        required=False,
+    )
+    speciality_id = fields.Many2one(
+        comodel_name="hirms.speciality",
+        string="Related Speciality",
+        required=True,
+    )
+    chronic = fields.Boolean(
+        string="Chronic?",
+        help="Check to set this pathology as chronic!"
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Pathology Code must be unique'
+        ),
+        (
+            'label_uniq',
+            'unique(label)',
+            'Pathology Name must be unique'
+        ),
+    ]
+

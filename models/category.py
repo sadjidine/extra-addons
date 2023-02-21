@@ -21,12 +21,26 @@
 #############################################################################
 
 from odoo import models, fields, api
-from odoo.tools.populate import compute
-from odoo.tools.translate import _
 
-class Insured(models.Model):
-    _name = 'hirms.insured'
-    _description = 'insured'
-    inherits = {'res.partner': "partner_id"}
 
+class Category(models.Model):
+    _name = 'hirms.category'
+    _description = 'medical categories'
+
+    name = fields.Char(
+        string="Category label",
+        required=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Category name must be unique'
+        ),
+    ]
 

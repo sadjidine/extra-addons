@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 SIGEM.
+     Auteur : Sadjidine Salifou OMBOTIMBE
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+-->
+<odoo>
+    <menuitem id="hirms_root"
+              name="HIRMS"
+              sequence="0"
+              web_icon="hirms,static/description/icon.png"
+    />
+    <menuitem id="hirms_config_root"
+              name="Configurations"
+              parent="hirms_root"
+              sequence="10"
+    />
+    <menuitem id="proximas_souscription"
+              name="1. Gestion Souscriptions"
+              parent="proximas_souscription_root"
+              sequence="100"
+    />
+</odoo>

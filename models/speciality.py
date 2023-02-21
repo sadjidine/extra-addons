@@ -19,30 +19,28 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-{
-    'name': "HIRMS",
-    'description': """
-    Healthcare Insurance Records Management System.
-    """,
-    'summary': """
-    HIRMS module which is used to mange the healthcare insurance functionalities.
-    """,
-    'author': "SIGEM",
-    'company': "SIGEM",
-    'maintainer': 'Salif Sadjidine OMBOTIMBE',
-    'website': "https://www.sigem.pro",
-    "license": "AGPL-3",
-    'category': 'Insurance',
-    'sequence': -100,
-    'version': '15.0.1.0.0',
-    'depends': ['base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'data/insured_sequence.xml',
-        'views/insured_view.xml',
-    ],
-    'installable': True,
-    'auto_install': False,
-    'application': True,
 
-}
+from odoo import models, fields, api
+
+
+class Speciality(models.Model):
+    _name = 'hirms.speciality'
+    _description = 'medical specialities'
+
+    name = fields.Char(
+        string="Speciality label",
+        required=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Speciality name must be unique'
+        ),
+    ]
+
