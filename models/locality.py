@@ -19,19 +19,33 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-from . import company
-from . import insured
-from . import category
-from . import speciality
-from . import pathology
-from . import codification
-from . import nomenclature
-from . import molecule
-from . import medication_form
-from . import therapeutic_route
-from . import medication
-from . import district
-from . import department
-from . import locality
-from . import exercise
+
+from odoo import models, fields, api
+
+
+class Locality(models.Model):
+    _name = 'hirms.locality'
+    _description = 'administrative localities'
+
+    name = fields.Char(
+        string="locality name",
+        required=True,
+    )
+    department_id = fields.Many2one(
+        comodel_name="hirms.department",
+        string="Department",
+        required=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_department_uniq',
+            'unique(name,department_id)',
+            'Locality name must be unique for this department!'
+        ),
+    ]
 

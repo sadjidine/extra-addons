@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- District form view-->
+    <record id="district_form" model="ir.ui.view">
+        <field name="name">hirms.district.form</field>
+        <field name="model">hirms.district</field>
+        <field name="arch" type="xml">
+            <form string="District form">
+                    <group>
+                        <group name="District" string="District data record">
+                            <field name="name"/>
+                            <field name="country_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- District tree view-->
+    <record id="district_tree" model="ir.ui.view">
+        <field name="name">hirms.district.tree</field>
+        <field name="model">hirms.district</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="country_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of District menu-->
+    <record model="ir.actions.act_window" id="district_action">
+        <field name="name">Districts Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.district</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new district record...
+            </p>
+            <p>
+                You can create districts data here.
+            </p>
+        </field>
+    </record>
+</odoo>

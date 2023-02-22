@@ -22,11 +22,11 @@
 {
     'name': "HIRMS",
     'description': """
-    Healthcare Insurance Records Management System.
+     Healthcare Insurance Records Management System.
     """,
     'summary': """
-    HIRMS module which is used to manage the healthcare insurance activities 
-    and records.
+     HIRMS module which is used to manage the healthcare insurance activities 
+     and records.
     """,
     'author': "Salif Sadjidine OMBOTIMBE",
     'company': "SIGEM",
@@ -41,6 +41,10 @@
         'security/ir.model.access.csv',
         'security/hirms_security.xml',
         'data/insured_sequence.xml',
+        'views/company.xml',
+        'views/district.xml',
+        'views/department.xml',
+        'views/locality.xml',
         'views/category.xml',
         'views/speciality.xml',
         'views/codification.xml',
@@ -56,5 +60,4 @@
     'installable': True,
     'auto_install': False,
     'application': True,
-
 }

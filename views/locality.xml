@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Locality form view-->
+    <record id="locality_form" model="ir.ui.view">
+        <field name="name">hirms.locality.form</field>
+        <field name="model">hirms.locality</field>
+        <field name="arch" type="xml">
+            <form string="Locality form">
+                    <group>
+                        <group name="Locality" string="Locality data record">
+                            <field name="name"/>
+                            <field name="department_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Locality tree view-->
+    <record id="locality_tree" model="ir.ui.view">
+        <field name="name">hirms.locality.tree</field>
+        <field name="model">hirms.locality</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of Locality menu-->
+    <record model="ir.actions.act_window" id="locality_action">
+        <field name="name">Localities Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.locality</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new locality record...
+            </p>
+            <p>
+                You can create localities data here.
+            </p>
+        </field>
+    </record>
+</odoo>

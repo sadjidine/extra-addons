@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Department form view-->
+    <record id="department_form" model="ir.ui.view">
+        <field name="name">hirms.department.form</field>
+        <field name="model">hirms.department</field>
+        <field name="arch" type="xml">
+            <form string="Department form">
+                    <group>
+                        <group name="Department" string="Department data record">
+                            <field name="name"/>
+                            <field name="district_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Department tree view-->
+    <record id="department_tree" model="ir.ui.view">
+        <field name="name">hirms.department.tree</field>
+        <field name="model">hirms.department</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="district_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of department menu-->
+    <record model="ir.actions.act_window" id="department_action">
+        <field name="name">Departments Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new department record...
+            </p>
+            <p>
+                You can create departments data here.
+            </p>
+        </field>
+    </record>
+</odoo>

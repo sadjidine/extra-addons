@@ -9,3 +9,8 @@ access_medication_form_user,Medication Form User Access,model_hirms_medication_f
 access_therapeutic_route_user,Therapeutic Route Form User Access,model_hirms_therapeutic_route,base.group_user,1,1,1,0
 access_medication_user,Medication Form User Access,model_hirms_medication,base.group_user,1,1,1,0
 access_nomenclature_user,Nomenclature User Access,model_hirms_nomenclature,base.group_user,1,1,1,0
+access_company_user,Company User Access,model_res_company,base.group_user,1,1,1,0
+access_district_user,District User Access,model_hirms_district,base.group_user,1,1,1,0
+access_department_user,Department User Access,model_hirms_department,base.group_user,1,1,1,0
+access_locality_user,Locality User Access,model_hirms_locality,base.group_user,1,1,1,0
+access_exercise_user,exercise User Access,model_hirms_exercise,base.group_user,1,1,1,0
