@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Nomemclature form view-->
+    <record id="nomenclature_form" model="ir.ui.view">
+        <field name="name">hirms.nomenclature.form</field>
+        <field name="model">hirms.nomenclature</field>
+        <field name="arch" type="xml">
+            <form string="Nomenclature form">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="codification_id"/>
+                            <field name="coefficient"/>
+                            <field name="editable_cost"/>
+                            <field name="prior_agreement"/>
+                        </group>
+                        <group>
+                            <field name="quantity_required"/>
+                            <field name="pending_period"/>
+                            <field name="minimum_age"/>
+                            <field name="maximum_age"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Nomenclature tree view-->
+    <record id="nomenclature_tree" model="ir.ui.view">
+        <field name="name">hirms.nomenclature.tree</field>
+        <field name="model">hirms.nomenclature</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="codification_id"/>
+                <field name="coefficient"/>
+                <field name="editable_cost"/>
+                <field name="prior_agreement"/>
+                <field name="quantity_required"/>
+                <field name="pending_period"/>
+                <field name="minimum_age"/>
+                <field name="maximum_age"/>
+                <field name="active"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of nomenclature menu-->
+    <record model="ir.actions.act_window" id="nomenclature_action">
+        <field name="name">Nomenclatures Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.nomenclature</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new nomenclature record...
+            </p>
+            <p>
+                You can create nomenclature data here.
+            </p>
+        </field>
+    </record>
+</odoo>

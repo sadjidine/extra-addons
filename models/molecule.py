@@ -23,28 +23,13 @@
 from odoo import models, fields, api
 
 
-class Pathology(models.Model):
-    _name = 'hirms.pathology'
-    _description = 'medical pathologies'
-    _rec_name = 'code'
+class Molecule(models.Model):
+    _name = 'hirms.molecule'
+    _description = 'medication molecules'
 
     name = fields.Char(
-        string="Label (Name)",
+        size=128,
         required=True,
-    )
-    code = fields.Char(
-        string="Pathology Code",
-        required=False,
-    )
-    speciality_id = fields.Many2one(
-        comodel_name="hirms.speciality",
-        string="Related Speciality",
-        ondelete="restrict",
-        required=True,
-    )
-    chronic = fields.Boolean(
-        string="Chronic?",
-        help="Check to set this pathology as chronic!"
     )
     note = fields.Text(
         string="Note & description",
@@ -55,12 +40,7 @@ class Pathology(models.Model):
         (
             'name_uniq',
             'unique(name)',
-            'Pathology Code must be unique'
-        ),
-        (
-            'label_uniq',
-            'unique(label)',
-            'Pathology Name must be unique'
+            'Molecule name must be unique'
         ),
     ]
 

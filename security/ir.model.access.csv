@@ -8,3 +8,4 @@ access_molecule_user,Molecule User Access,model_hirms_molecule,base.group_user,1
 access_medication_form_user,Medication Form User Access,model_hirms_medication_form,base.group_user,1,1,1,0
 access_therapeutic_route_user,Therapeutic Route Form User Access,model_hirms_therapeutic_route,base.group_user,1,1,1,0
 access_medication_user,Medication Form User Access,model_hirms_medication,base.group_user,1,1,1,0
+access_nomenclature_user,Nomenclature User Access,model_hirms_nomenclature,base.group_user,1,1,1,0

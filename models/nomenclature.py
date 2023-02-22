@@ -28,11 +28,10 @@ class Nomenclature(models.Model):
     _description = 'nomenclature of medical procedures'
 
     name = fields.Char(
-        string="Procedure name",
+        string="Medical Procedure",
         required=True,
     )
     code = fields.Char(
-        string="Code Label",
         required=False,
         help="Set if necessary, the code of this medical procedure!"
     )

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pathology form view-->
+    <record id="pathology_form" model="ir.ui.view">
+        <field name="name">hirms.pathology.form</field>
+        <field name="model">hirms.pathology</field>
+        <field name="arch" type="xml">
+            <form string="Pathology form">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="speciality_id"/>
+                            <field name="chronic"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Pathology tree view-->
+    <record id="pathology_tree" model="ir.ui.view">
+        <field name="name">hirms.pathology.tree</field>
+        <field name="model">hirms.pathology</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="speciality_id"/>
+                <field name="chronic"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of pathology menu-->
+    <record model="ir.actions.act_window" id="pathology_action">
+        <field name="name">Pathologies Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.pathology</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new pathology record...
+            </p>
+            <p>
+                You can create pathologies data here.
+            </p>
+        </field>
+    </record>
+</odoo>

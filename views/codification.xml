@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Codification form view-->
+    <record id="codification_form" model="ir.ui.view">
+        <field name="name">hirms.codification.form</field>
+        <field name="model">hirms.codification</field>
+        <field name="arch" type="xml">
+            <form string="Codification form">
+                    <group>
+                        <group name="Codification" string="Codification data record">
+                            <field name="name"/>
+                            <field name="label"/>
+                            <field name="category_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Codification tree view-->
+    <record id="codification_tree" model="ir.ui.view">
+        <field name="name">hirms.codification.tree</field>
+        <field name="model">hirms.codification</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="label"/>
+                <field name="category_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of codification menu-->
+    <record model="ir.actions.act_window" id="codification_action">
+        <field name="name">Codifications Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.codification</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new codification record...
+            </p>
+            <p>
+                You can create codifications data here.
+            </p>
+        </field>
+    </record>
+</odoo>

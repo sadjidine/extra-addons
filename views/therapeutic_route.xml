@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Category form view-->
-    <record id="category_form" model="ir.ui.view">
-        <field name="name">hirms.category.form</field>
-        <field name="model">hirms.category</field>
+    <!-- Therapeutic Route form view-->
+    <record id="therapeutic_route_form" model="ir.ui.view">
+        <field name="name">hirms.therapeutic.route.form</field>
+        <field name="model">hirms.therapeutic.route</field>
         <field name="arch" type="xml">
-            <form string="Category form">
+            <form string="Therapeutic Route form">
                     <group>
-                        <group name="Category" string="Category data record">
+                        <group name="Therapeutic route form" string="Therapeutic route data record">
                             <field name="name"/>
                         </group>
                     </group>
@@ -19,10 +19,10 @@
             </form>
         </field>
     </record>
-    <!-- Category tree view-->
-    <record id="category_tree" model="ir.ui.view">
-        <field name="name">hirms.category.tree</field>
-        <field name="model">hirms.category</field>
+    <!-- Therapeutic form tree view-->
+    <record id="therapeutic_route_tree" model="ir.ui.view">
+        <field name="name">hirms.therapeutic.route.tree</field>
+        <field name="model">hirms.therapeutic.route</field>
         <field name="arch" type="xml">
             <tree sample="1">
                 <field name="name"/>
@@ -30,18 +30,18 @@
             </tree>
         </field>
     </record>
-    <!--    Action of category menu-->
-    <record model="ir.actions.act_window" id="category_action">
-        <field name="name">Categories Management</field>
+    <!--Action of therapeutic routes menu-->
+    <record model="ir.actions.act_window" id="therapeutic_route_action">
+        <field name="name">Therapeutic routes Management</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hirms.category</field>
+        <field name="res_model">hirms.therapeutic.route</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create new category record...
+                Create new therapeutic route record...
             </p>
             <p>
-                You can create categories data here.
+                You can create therapeutic routes data here.
             </p>
         </field>
     </record>

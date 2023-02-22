@@ -15,9 +15,57 @@
               sequence="10"
     />
     <menuitem id="hirms_config_category"
-              name="Category"
+              name="Categories"
               parent="hirms_config_root"
               action="category_action"
-              sequence="100"
+              sequence="11"
+    />
+    <menuitem id="hirms_config_speciality"
+              name="Specialities"
+              parent="hirms_config_root"
+              action="speciality_action"
+              sequence="12"
+    />
+    <menuitem id="hirms_config_codification"
+              name="Codifications"
+              parent="hirms_config_root"
+              action="codification_action"
+              sequence="13"
+    />
+    <menuitem id="hirms_config_nomenclature"
+              name="Nomenclatures"
+              parent="hirms_config_root"
+              action="nomenclature_action"
+              sequence="14"
+    />
+    <menuitem id="hirms_config_pathology"
+              name="Pathologies"
+              parent="hirms_config_root"
+              action="pathology_action"
+              sequence="15"
+    />
+    <menuitem id="hirms_config_molecule"
+              name="Molecules"
+              parent="hirms_config_root"
+              action="molecule_action"
+              sequence="16"
+    />
+    <menuitem id="hirms_config_medication_form"
+              name="Medication Forms"
+              parent="hirms_config_root"
+              action="medication_form_action"
+              sequence="17"
+    />
+    <menuitem id="hirms_config_therapeutic_route"
+              name="Therapeutic Routes"
+              parent="hirms_config_root"
+              action="therapeutic_route_action"
+              sequence="18"
+    />
+    <menuitem id="hirms_config_medication"
+              name="Medication"
+              parent="hirms_config_root"
+              action="medication_action"
+              sequence="19"
     />
 </odoo>
