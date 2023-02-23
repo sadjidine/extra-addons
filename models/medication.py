@@ -75,7 +75,6 @@ class MedicationForm(models.Model):
     ]
 
 
-
 class TherapeuticRoute(models.Model):
     _name = 'hirms.therapeutic.route'
     _description = 'Therapeutic routes medication'
