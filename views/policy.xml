@@ -14,6 +14,34 @@
                         </group>
                     </group>
                     <notebook>
+                        <page string="Categories Records Control">
+                            <field name="category_control_ids">
+                                <tree>
+                                    <field name="category_id"/>
+                                    <field name="gender"/>
+                                    <field name="family_status"/>
+                                    <field name="suspending_period"/>
+                                    <field name="individual_limit"/>
+                                    <field name="family_limit"/>
+                                    <field name="pending_period"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Medical Code Records Control">
+                            <field name="code_control_ids">
+                                <tree>
+                                    <field name="medical_code_id"/>
+                                    <field name="public_cover_rate"/>
+                                    <field name="private_cover_rate"/>
+                                    <field name="refund_cover_rate"/>
+                                    <field name="individual_limit"/>
+                                    <field name="family_limit"/>
+                                    <field name="pending_period"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
                         <page string="Note &amp; Description">
                             <field name="note"/>
                         </page>

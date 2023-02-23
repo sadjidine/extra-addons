@@ -40,6 +40,18 @@ class Policy(models.Model):
         string="Organisation",
         required=True,
     )
+    category_control_ids = fields.One2many(
+        comodel_name="hirms.category.control",
+        inverse_name="policy_id",
+        string="Category Control Rules",
+        required=False,
+    )
+    code_control_ids = fields.One2many(
+        comodel_name="hirms.code.control",
+        inverse_name="policy_id",
+        string="Medical Code Control Rules",
+        required=False,
+    )
     gender_control = fields.Boolean(
         default=False,
         help="Checked to allow the system to check the gender for assigns declaration...",
@@ -194,11 +206,11 @@ class Policy(models.Model):
     ]
 
 
-class CodificationControl(models.Model):
+class CodeControl(models.Model):
     _name = 'hirms.code.control'
     _description = 'policy medical code control'
 
-    codification_id = fields.Many2one(
+    medical_code_id = fields.Many2one(
         comodel_name="hirms.codification",
         string="Medical Code",
         ondelete="restrict",

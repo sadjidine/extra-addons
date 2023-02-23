@@ -15,3 +15,5 @@ access_department_user,Department User Access,model_hirms_department,base.group_
 access_locality_user,Locality User Access,model_hirms_locality,base.group_user,1,1,1,0
 access_exercise_user,Exercise User Access,model_hirms_exercise,base.group_user,1,1,1,0
 access_policy_user,Policy User Access,model_hirms_policy,base.group_user,1,1,1,0
+access_code_control_user,Code Control User Access,model_hirms_code_control,base.group_user,1,1,1,0
+access_category_control_user,Category Control User Access,model_hirms_category_control,base.group_user,1,1,1,0
