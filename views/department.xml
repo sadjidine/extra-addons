@@ -6,8 +6,8 @@
         <field name="model">hirms.department</field>
         <field name="arch" type="xml">
             <form string="Department form">
-                    <group>
-                        <group name="Department" string="Department data record">
+                    <group string="Department Data Record">
+                        <group>
                             <field name="name"/>
                             <field name="district_id"/>
                         </group>

@@ -29,12 +29,12 @@ class Pathology(models.Model):
     _rec_name = 'code'
 
     name = fields.Char(
-        string="Label (Name)",
+        string="Pathology",
         required=True,
     )
     code = fields.Char(
         string="Pathology Code",
-        required=False,
+        required=True,
     )
     speciality_id = fields.Many2one(
         comodel_name="hirms.speciality",
@@ -45,6 +45,9 @@ class Pathology(models.Model):
     chronic = fields.Boolean(
         string="Chronic?",
         help="Check to set this pathology as chronic!"
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",

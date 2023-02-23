@@ -28,7 +28,7 @@ class Exercise(models.Model):
     _description = 'administrative exercises'
 
     name = fields.Char(
-        string="Exercise label",
+        string="Label",
         size=64,
         required=True,
     )
@@ -58,6 +58,9 @@ class Exercise(models.Model):
     closed = fields.Boolean(
         help="Checked to define this exercise to be closed!",
         default=False,
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",

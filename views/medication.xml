@@ -6,9 +6,9 @@
         <field name="model">hirms.medication</field>
         <field name="arch" type="xml">
             <form string="Medication form">
-                    <group>
+                    <group string="Medication: Pharmaceutical Product Data Record">
                         <group>
-                            <field name="name"/>
+                            <field name="name" string="Pharmacy Product"/>
                             <field name="code"/>
                             <field name="dosage"/>
                             <field name="medication_form_id"/>
@@ -16,7 +16,7 @@
                             <field name="indicative_price"/>
                         </group>
                         <group>
-                            <field name="tolerated_margin"/>
+                            <field name="product_margin"/>
                             <field name="pending_period"/>
                             <field name="minimum_age"/>
                             <field name="maximum_age"/>
@@ -40,10 +40,6 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="dosage"/>
-                <field name="medication_form_id"/>
-                <field name="therapeutic_route_id"/>
-                <field name="indicative_price"/>
-                <field name="tolerated_margin"/>
                 <field name="pending_period"/>
                 <field name="minimum_age"/>
                 <field name="maximum_age"/>

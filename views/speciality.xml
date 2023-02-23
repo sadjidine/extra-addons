@@ -6,7 +6,7 @@
         <field name="model">hirms.speciality</field>
         <field name="arch" type="xml">
             <form string="Speciality form">
-                    <group>
+                    <group string="Speciality Data Record">
                         <group string="Speciality data record">
                             <field name="name"/>
                         </group>

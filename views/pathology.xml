@@ -6,7 +6,7 @@
         <field name="model">hirms.pathology</field>
         <field name="arch" type="xml">
             <form string="Pathology form">
-                    <group>
+                    <group string="Pathology Data Record">
                         <group>
                             <field name="name"/>
                             <field name="code"/>

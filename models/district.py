@@ -28,13 +28,16 @@ class District(models.Model):
     _description = 'administrative districts'
 
     name = fields.Char(
-        string="District name",
+        string="District",
         required=True,
     )
     country_id = fields.Many2one(
         comodel_name="res.country",
         string="Country",
         required=True,
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",

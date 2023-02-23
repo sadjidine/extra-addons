@@ -33,6 +33,9 @@ class ResCompany(models.Model):
         comodel_name="hirms.exercise",
         string="Exercises",
     )
+    active = fields.Boolean(
+        default=True,
+    )
     note = fields.Text(
         string="Note & description",
         required=False,

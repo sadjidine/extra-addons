@@ -25,7 +25,7 @@
      Healthcare Insurance Records Management System.
     """,
     'summary': """
-     HIRMS module which is used to manage the healthcare insurance activities 
+     HIRMS module which is used to manage healthcare insurance systems activities 
      and records.
     """,
     'author': "Salif Sadjidine OMBOTIMBE",
@@ -54,6 +54,7 @@
         'views/molecule.xml',
         'views/medication_form.xml',
         'views/therapeutic_route.xml',
+        'views/policy.xml',
         'views/hirms_menu.xml',
         'views/insured_view.xml',
     ],

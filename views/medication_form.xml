@@ -6,8 +6,8 @@
         <field name="model">hirms.medication.form</field>
         <field name="arch" type="xml">
             <form string="Medication type form">
-                    <group>
-                        <group name="Medication form" string="Medication form data record">
+                    <group string="Medication form data record">
+                        <group>
                             <field name="name"/>
                         </group>
                     </group>

@@ -28,13 +28,16 @@ class Locality(models.Model):
     _description = 'administrative localities'
 
     name = fields.Char(
-        string="locality name",
+        string="Locality",
         required=True,
     )
     department_id = fields.Many2one(
         comodel_name="hirms.department",
         string="Department",
         required=True,
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",

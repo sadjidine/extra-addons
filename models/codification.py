@@ -28,7 +28,7 @@ class Codification(models.Model):
     _description = 'medical codifications'
 
     name = fields.Char(
-        string="Medical Code",
+        string="Code",
         required=True,
     )
     label = fields.Char(

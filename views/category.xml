@@ -6,8 +6,8 @@
         <field name="model">hirms.category</field>
         <field name="arch" type="xml">
             <form string="Category form">
-                    <group>
-                        <group name="Category" string="Category data record">
+                    <group string="Category Data Record">
+                        <group>
                             <field name="name"/>
                         </group>
                     </group>

@@ -6,8 +6,8 @@
         <field name="model">hirms.therapeutic.route</field>
         <field name="arch" type="xml">
             <form string="Therapeutic Route form">
-                    <group>
-                        <group name="Therapeutic route form" string="Therapeutic route data record">
+                    <group string="Therapeutic Route Data Record">
+                        <group>
                             <field name="name"/>
                         </group>
                     </group>

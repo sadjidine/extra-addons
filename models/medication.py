@@ -23,12 +23,87 @@
 from odoo import models, fields, api
 
 
+class Molecule(models.Model):
+    _name = 'hirms.molecule'
+    _description = 'medication molecules'
+
+    name = fields.Char(
+        string="Molecule",
+        size=128,
+        required=True,
+    )
+    active = fields.Boolean(
+        default=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Molecule name must be unique'
+        ),
+    ]
+
+
+class MedicationForm(models.Model):
+    _name = 'hirms.medication.form'
+    _description = 'Pharmaceutical forms medication'
+
+    name = fields.Char(
+        string="Medication Form",
+        size=128,
+        required=True,
+    )
+    active = fields.Boolean(
+        default=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Medication form name must be unique'
+        ),
+    ]
+
+
+
+class TherapeuticRoute(models.Model):
+    _name = 'hirms.therapeutic.route'
+    _description = 'Therapeutic routes medication'
+
+    name = fields.Char(
+        size=128,
+        required=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Therapeutic route name must be unique'
+        ),
+    ]
+
+
 class Medication(models.Model):
     _name = 'hirms.medication'
     _description = 'pharmacy drugs medication'
 
     name = fields.Char(
-        string="Denomination",
+        string="Pharmaceutical Product",
         size=128,
         required=True,
         help="International Common Denomination..."
@@ -45,7 +120,7 @@ class Medication(models.Model):
         digits=(6, 0),
         default=0
     )
-    tolerated_margin = fields.Float(
+    product_margin = fields.Float(
         digits=(6, 0),
         default=0,
         help="Set the tolerated margin of the pharmaceutical product price"

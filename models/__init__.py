@@ -26,12 +26,10 @@ from . import speciality
 from . import pathology
 from . import codification
 from . import nomenclature
-from . import molecule
-from . import medication_form
-from . import therapeutic_route
 from . import medication
 from . import district
 from . import department
 from . import locality
 from . import exercise
+from . import policy
 

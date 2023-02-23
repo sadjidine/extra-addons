@@ -6,8 +6,8 @@
         <field name="model">hirms.locality</field>
         <field name="arch" type="xml">
             <form string="Locality form">
-                    <group>
-                        <group name="Locality" string="Locality data record">
+                    <group string="Locality Data Record">
+                        <group>
                             <field name="name"/>
                             <field name="department_id"/>
                         </group>

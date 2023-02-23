@@ -6,8 +6,8 @@
         <field name="model">hirms.molecule</field>
         <field name="arch" type="xml">
             <form string="Molecule form">
-                    <group>
-                        <group name="Category" string="Molecule data record">
+                    <group string="Molecule Data Record">
+                        <group>
                             <field name="name"/>
                         </group>
                     </group>

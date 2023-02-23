@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Policy form view-->
+    <record id="policy_form" model="ir.ui.view">
+        <field name="name">hirms.policy.form</field>
+        <field name="model">hirms.policy</field>
+        <field name="arch" type="xml">
+            <form string="Policy form">
+                    <group string="Policy Data Record">
+                        <group >
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Policy tree view-->
+    <record id="policy_tree" model="ir.ui.view">
+        <field name="name">hirms.policy.tree</field>
+        <field name="model">hirms.policy</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of policy menu-->
+    <record model="ir.actions.act_window" id="policy_action">
+        <field name="name">Insurance Policies Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.policy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new insurance policy record...
+            </p>
+            <p>
+                You can create policies data here.
+            </p>
+        </field>
+    </record>
+</odoo>

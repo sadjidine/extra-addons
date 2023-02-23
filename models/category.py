@@ -28,8 +28,11 @@ class Category(models.Model):
     _description = 'medical categories'
 
     name = fields.Char(
-        string="Category label",
+        string="Category",
         required=True,
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",

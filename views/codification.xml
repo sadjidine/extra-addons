@@ -6,8 +6,8 @@
         <field name="model">hirms.codification</field>
         <field name="arch" type="xml">
             <form string="Codification form">
-                    <group>
-                        <group name="Codification" string="Codification data record">
+                    <group string="Codification Data Record">
+                        <group>
                             <field name="name"/>
                             <field name="label"/>
                             <field name="category_id"/>

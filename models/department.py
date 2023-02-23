@@ -28,13 +28,16 @@ class Department(models.Model):
     _description = 'administrative departments'
 
     name = fields.Char(
-        string="Department name",
+        string="Department",
         required=True,
     )
     district_id = fields.Many2one(
         comodel_name="hirms.district",
         string="District",
         required=True,
+    )
+    active = fields.Boolean(
+        default=True,
     )
     note = fields.Text(
         string="Note & description",
