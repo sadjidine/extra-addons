@@ -66,10 +66,10 @@
               action="codification_action"
               sequence="113"
     />
-    <menuitem id="hirms_config_nomenclature"
-              name="Nomenclatures"
+    <menuitem id="hirms_config_medicine"
+              name="Medicine Services"
               parent="hirms_medical_settings"
-              action="nomenclature_action"
+              action="medicine_action"
               sequence="114"
     />
     <menuitem id="hirms_config_pathology"

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Medicine form view-->
+    <record id="medicine_form" model="ir.ui.view">
+        <field name="name">hirms.medicine.form</field>
+        <field name="model">hirms.medicine</field>
+        <field name="arch" type="xml">
+            <form string="Medicine form">
+                    <group col="4" colspan="2">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="codification_id"/>
+                        <field name="coefficient"/>
+                    </group>
+                    <notebook>
+                        <page string="Medicine Service Data Record">
+                            <gruop>
+                                <group col="8" colspan="2" >
+                                    <field name="editable_cost"/>
+                                    <field name="prior_agreement"/>
+                                    <field name="quantity_required"/>
+                                    <field name="pending_period"/>
+                                    <field name="minimum_age"/>
+                                    <field name="maximum_age"/>
+                                    <field name="active"/>
+                                </group>
+                            </gruop>
+                        </page>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Medicine tree view-->
+    <record id="medicine_tree" model="ir.ui.view">
+        <field name="name">hirms.medicine.tree</field>
+        <field name="model">hirms.medicine</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="codification_id"/>
+                <field name="coefficient"/>
+                <field name="editable_cost"/>
+                <field name="prior_agreement"/>
+                <field name="quantity_required"/>
+                <field name="pending_period"/>
+                <field name="minimum_age"/>
+                <field name="maximum_age"/>
+                <field name="active"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of nomenclature menu-->
+    <record model="ir.actions.act_window" id="medicine_action">
+        <field name="name">Medicine Services Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.medicine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new medicine service record...
+            </p>
+            <p>
+                You can create medicine services data here.
+            </p>
+        </field>
+    </record>
+</odoo>

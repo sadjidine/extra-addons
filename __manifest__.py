@@ -48,7 +48,7 @@
         'views/category.xml',
         'views/speciality.xml',
         'views/codification.xml',
-        'views/nomenclature.xml',
+        'views/medicine.xml',
         'views/pathology.xml',
         'views/medication.xml',
         'views/molecule.xml',
