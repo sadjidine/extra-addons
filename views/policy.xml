@@ -10,11 +10,48 @@
                         <group >
                             <field name="code"/>
                             <field name="name"/>
+                            <field name="company_id"/>
                             <field name="active"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Categories Records Control">
+                        <page string="1. General Conditions To Apply">
+                            <group col="8" colspan="2" >
+                                <field name="maxi_member_age"/>
+                                <field name="maxi_spouse_age"/>
+                                <field name="spouse_limit"/>
+                                <field name="spouse_add_allowed"/>
+                                <field name="maxi_child_age"/>
+                                <field name="children_limit"/>
+                                <field name="children_add_allowed"/>
+                                <field name="child_age_majority"/>
+                                <field name="maxi_filiation_age"/>
+                                <field name="filiation_limit"/>
+                                <field name="filiation_add_allowed"/>
+                                <field name="suspending_period"/>
+                                <field name="gender_control"/>
+                                <field name="individual_limit"/>
+                                <field name="family_limit"/>
+                                <field name="public_cover_rate"/>
+                                <field name="private_cover_rate"/>
+                                <field name="public_cover_refund_rate"/>
+                                <field name="private_cover_refund_rate"/>
+                                <field name="medical_care_validity"/>
+                                <field name="refund_validity"/>
+                                <field name="maxi_refund_quantity"/>
+                                <field name="refund_amount_limit"/>
+                                <field name="individual_refund_limit"/>
+                                <field name="family_refund_limit"/>
+                                <field name="childbirth_donation"/>
+                                <field name="medication_maxi_line"/>
+                                <field name="medication_limit"/>
+                                <field name="medication_price_limit"/>
+                                <field name="medical_care_validity"/>
+                                <field name="product_price_margin"/>
+                                <field name="alert_threshold"/>
+                            </group>
+                        </page>
+                        <page string="2. Categories Records Control">
                             <field name="category_control_ids">
                                 <tree>
                                     <field name="category_id"/>
@@ -28,7 +65,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Medical Code Records Control">
+                        <page string="3. Medical Code Records Control">
                             <field name="code_control_ids">
                                 <tree>
                                     <field name="medical_code_id"/>
@@ -38,6 +75,19 @@
                                     <field name="individual_limit"/>
                                     <field name="family_limit"/>
                                     <field name="pending_period"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="4. Pathology Records Control">
+                            <field name="pathology_control_ids">
+                                <tree>
+                                    <field name="pathology_id"/>
+                                    <field name="individual_limit"/>
+                                    <field name="family_limit"/>
+                                    <field name="process_limit"/>
+                                    <field name="minimum_age"/>
+                                    <field name="maximum_age"/>
                                     <field name="active"/>
                                 </tree>
                             </field>

@@ -58,7 +58,7 @@ class Codification(models.Model):
         (
             'label_uniq',
             'unique(label)',
-            'Code Label must be unique'
+            'Code must be unique'
         ),
 
     ]

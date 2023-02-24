@@ -23,17 +23,17 @@
 from odoo import models, fields, api
 
 
-class Nomenclature(models.Model):
-    _name = 'hirms.nomenclature'
-    _description = 'nomenclature of medical procedures'
+class Medicine(models.Model):
+    _name = 'hirms.medicine'
+    _description = 'nomenclature of medicine service'
 
     name = fields.Char(
-        string='Nomenclature',
+        string='Service name',
         required=True,
     )
     code = fields.Char(
         required=False,
-        help="Set if necessary, the code of this medical procedure!"
+        help="Set if necessary, the code of this medicine service",
     )
     codification_id = fields.Many2one(
         comodel_name="hirms.codification",
@@ -48,22 +48,22 @@ class Nomenclature(models.Model):
         help="Checked if this procedure need the prior agreement of medical practitioner",
     )
     editable_cost = fields.Boolean(
-        help="Checked if the cost of this procedure is editable and not set by default!",
+        help="Checked if the cost of this service is editable and not set by default!",
     )
     quantity_required = fields.Boolean(
-        help="Checked if the quantity of this procedure is required!",
+        help="Checked if the quantity of this service is required!",
     )
     pending_period = fields.Integer(
         default=0,
-        help="Set the waiting period (timeout) in days, between 2 procedures for this nomenclature!"
+        help="Set the waiting period (timeout) in days, between 2 procedures for this service!"
     )
     minimum_age = fields.Integer(
         default=0,
-        help="Set the minimum patient age required for this medical procedure!"
+        help="Set the minimum patient age required for this service!"
     )
     maximum_age = fields.Integer(
         default=0,
-        help="Set the maximum patient age required for this medical procedure!"
+        help="Set the maximum patient age required for this service!"
     )
     active = fields.Boolean(
         default=True,
@@ -77,12 +77,12 @@ class Nomenclature(models.Model):
         (
             'name_uniq',
             'unique(name)',
-            'Codification name must be unique'
+            'Medicine service name must be unique'
         ),
         (
             'code_uniq',
             'unique(code)',
-            'Code Label must be unique'
+            'Code must be unique'
         ),
 
     ]

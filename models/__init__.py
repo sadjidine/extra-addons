@@ -25,7 +25,7 @@ from . import category
 from . import speciality
 from . import pathology
 from . import codification
-from . import nomenclature
+from . import medicine
 from . import medication
 from . import district
 from . import department

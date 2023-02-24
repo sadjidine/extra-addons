@@ -23,41 +23,13 @@
 from odoo import models, fields, api
 
 
-class Exercise(models.Model):
-    _name = 'hirms.exercise'
-    _description = 'administrative exercises'
+class CareProvider(models.Model):
+    _name = 'hirms.provider'
+    _description = 'medical care providers'
 
     name = fields.Char(
-        string="Label",
-        size=64,
+        string="Category",
         required=True,
-    )
-    company_id = fields.Many2one(
-        comodel_name="res.company",
-        string="Organisation",
-        required=False,
-    )
-    date_start = fields.Date(
-        string="Start Date",
-        required=True,
-    )
-    date_end = fields.Date(
-        string="end Date",
-        required=True,
-    )
-    medical_care_validity = fields.Integer(
-        string="Process validity",
-        default=0,
-        help='Define the medical care process validity (in hours)'
-    )
-    medication_margin = fields.Float(
-        string="Medication Margin",
-        default=0,
-        help='Define the medication margin tolerated for every pharmaceutical product price!'
-    )
-    closed = fields.Boolean(
-        help="Checked to define this exercise to be closed!",
-        default=False,
     )
     active = fields.Boolean(
         default=True,
@@ -69,14 +41,9 @@ class Exercise(models.Model):
 
     _sql_constraints = [
         (
-            'name_organisation_uniq',
-            'unique(name,company_id)',
-            'Exercise name must be unique for this Company/Organisation!'
-        ),
-        (
-            'dates_check',
-            'CHECK(date_start < date_end)',
-            'The start date must be less than or equal to the end date!'
+            'name_uniq',
+            'unique(name)',
+            'Category name must be unique'
         ),
     ]
 

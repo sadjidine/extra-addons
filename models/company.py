@@ -45,7 +45,7 @@ class ResCompany(models.Model):
         (
             'acronym_uniq',
             'unique(acronym)',
-            'Locality name must be unique for this department!'
+            'Company Acronym name must be unique!'
         ),
     ]
 

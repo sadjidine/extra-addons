@@ -52,6 +52,12 @@ class Policy(models.Model):
         string="Medical Code Control Rules",
         required=False,
     )
+    pathology_control_ids = fields.One2many(
+        comodel_name="hirms.pathology.control",
+        inverse_name="policy_id",
+        string="Medical Pathology Control Rules",
+        required=False,
+    )
     gender_control = fields.Boolean(
         default=False,
         help="Checked to allow the system to check the gender for assigns declaration...",
@@ -69,20 +75,20 @@ class Policy(models.Model):
         digits=(9, 0),
         help="Indicate the family ceiling amount...",
     )
-    public_coverage_rate = fields.Integer(
+    public_cover_rate = fields.Integer(
         default=0,
         help="Define the public coverage rate (in percentage)...",
     )
-    private_coverage_rate = fields.Integer(
+    private_cover_rate = fields.Integer(
         default=0,
         help="Define the private coverage rate (in percentage)...",
     )
-    public_coverage_refund_rate = fields.Integer(
+    public_cover_refund_rate = fields.Integer(
         string=" Public Refund Rate",
         default=0,
         help="Define the public coverage rate for refund (in percentage)...",
     )
-    private_coverage_refund_rate = fields.Integer(
+    private_cover_refund_rate = fields.Integer(
         string=" Private Refund Rate",
         default=0,
         help="Define the private coverage rate for refund (in percentage)...",
@@ -91,11 +97,11 @@ class Policy(models.Model):
         default=0,
         help="Define the refund validity (in days)...",
     )
-    maxi_refund_number = fields.Integer(
+    maxi_refund_quantity = fields.Integer(
         default=0,
         help="Define the maximum refund number allowed per member/exercise...",
     )
-    refund_limit = fields.Float(
+    refund_amount_limit = fields.Float(
         digits=(6, 0),
         help="Indicate the amount limit per refund...",
     )
@@ -124,7 +130,6 @@ class Policy(models.Model):
         help="Define the maximum age (years) for someone to subscribe as other parent declared by a member...",
     )
     children_limit = fields.Integer(
-        string="Limit number of children",
         default=0,
         help="Define the number of limit allowed for declared children ...",
     )
@@ -134,10 +139,9 @@ class Policy(models.Model):
     )
     child_age_majority = fields.Integer(
         default=0,
-        help="Define qge of majority for children allowed...",
+        help="Define age of majority for children allowed...",
     )
     spouse_limit = fields.Integer(
-        string="Limit number of children",
         default=0,
         help="Define the number of limit allowed for declared spouse ...",
     )
@@ -146,7 +150,6 @@ class Policy(models.Model):
         help="Define the number of additional spouse(s) allowed...",
     )
     filiation_limit = fields.Integer(
-        string="Limit number of children",
         default=0,
         help="Define the number of limit allowed for declared filiation ...",
     )
@@ -162,7 +165,7 @@ class Policy(models.Model):
         digits=(6, 0),
         help="Indicate medication maximum amount allowed per care process...",
     )
-    medication_product_limit = fields.Float(
+    medication_price_limit = fields.Float(
         digits=(6, 0),
         help="Indicate the maximum allowed price for pharmaceutical product...",
     )
@@ -179,7 +182,7 @@ class Policy(models.Model):
         default=0,
         help='Define the medical care process validity (in hours)'
     )
-    product_margin = fields.Float(
+    product_price_margin = fields.Float(
         digits=(6, 0),
         default=0,
         help="Set the tolerated margin of the pharmaceutical product price"
@@ -208,7 +211,7 @@ class Policy(models.Model):
 
 class CodeControl(models.Model):
     _name = 'hirms.code.control'
-    _description = 'policy medical code control'
+    _description = 'policy medical codes control'
 
     medical_code_id = fields.Many2one(
         comodel_name="hirms.codification",
@@ -224,27 +227,29 @@ class CodeControl(models.Model):
     )
     public_cover_rate = fields.Integer(
         string="Public Rate (%)",
-        Default=0,
+        default=0,
     )
     private_cover_rate = fields.Integer(
         string="Private Rate (%)",
-        Default=0,
+        default=0,
     )
     refund_cover_rate = fields.Integer(
         string="Refund Cover Rate (%)",
-        Default=0,
+        default=0,
     )
     individual_limit = fields.Float(
-        string="Limit/individual",
         digits=(7, 0),
     )
     family_limit = fields.Float(
-        string="Limit/family",
         digits=(7, 0),
     )
     pending_period = fields.Integer(
         default=0,
         help="Set the waiting period (timeout) in days, between 2 procedures for this medical code!"
+    )
+    strict_control = fields.Boolean(
+        default=False,
+        help="Checked to confirm that this medical code is strictly controlling"
     )
     active = fields.Boolean(
         default=True,
@@ -265,7 +270,7 @@ class CodeControl(models.Model):
 
 class CategoryControl(models.Model):
     _name = 'hirms.category.control'
-    _description = 'policy category control'
+    _description = 'policy categories control'
 
     category_id = fields.Many2one(
         comodel_name="hirms.category",
@@ -305,36 +310,34 @@ class CategoryControl(models.Model):
     )
     individual_process_limit = fields.Integer(
         string="Process limit/individual",
-        Default=0,
+        default=0,
     )
     family_process_limit = fields.Integer(
         string="Process limit/family",
-        Default=0,
+        default=0,
     )
     individual_amount_limit = fields.Float(
         string="Amount limit/individual",
         digits=(9, 0),
-        Default=0,
+        default=0,
     )
     family_amount_limit = fields.Float(
         string="Amount limit/family",
         digits=(9, 0),
-        Default=0,
+        default=0,
     )
     private_cover_rate = fields.Integer(
         string="Private Rate (%)",
-        Default=0,
+        default=0,
     )
     refund_cover_rate = fields.Integer(
         string="Refund Cover Rate (%)",
-        Default=0,
+        default=0,
     )
     individual_limit = fields.Float(
-        string="Limit/individual",
         digits=(7, 0),
     )
     family_limit = fields.Float(
-        string="Limit/family",
         digits=(7, 0),
     )
     suspending_period = fields.Integer(
@@ -353,6 +356,10 @@ class CategoryControl(models.Model):
         default=0,
         help="Set the maximum patient age required for this control!"
     )
+    strict_control = fields.Boolean(
+        default=False,
+        help="Checked to confirm that this category is strictly controlling"
+    )
     active = fields.Boolean(
         default=True,
     )
@@ -366,5 +373,60 @@ class CategoryControl(models.Model):
             'category_policy_uniq',
             'unique(category_id, policy_id)',
             'Category related to policy must be unique'
+        )
+    ]
+
+
+class PathologyControl(models.Model):
+    _name = 'hirms.pathology.control'
+    _description = 'policy pathologies control'
+
+    pathology_id = fields.Many2one(
+        comodel_name="hirms.pathology",
+        string="Medical Pathology",
+        ondelete="restrict",
+        required=True,
+    )
+    policy_id = fields.Many2one(
+        comodel_name="hirms.policy",
+        string="Insurance Policy",
+        ondelete="restrict",
+        required=True,
+    )
+    individual_limit = fields.Float(
+        digits=(7, 0),
+    )
+    family_limit = fields.Float(
+        digits=(7, 0),
+    )
+    process_limit = fields.Integer(
+        default=0,
+        help="Set the process limit number allowed for this pathology!"
+    )
+    minimum_age = fields.Integer(
+        default=0,
+        help="Set the minimum patient age required for this control!"
+    )
+    maximum_age = fields.Integer(
+        default=0,
+        help="Set the maximum patient age required for this control!"
+    )
+    strict_control = fields.Boolean(
+        default=False,
+        help="Checked to confirm that this pathology is strictly controlling"
+    )
+    active = fields.Boolean(
+        default=True,
+    )
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
+
+    _sql_constraints = [
+        (
+            'pathology_policy_uniq',
+            'unique(pathology_id, policy_id)',
+            'Pathology related to policy must be unique'
         )
     ]
