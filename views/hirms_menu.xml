@@ -113,4 +113,15 @@
               action="policy_action"
               sequence="121"
     />
+    <menuitem id="hirms_membership_root"
+              name="Membership"
+              parent="hirms_root"
+              sequence="40"
+    />
+    <menuitem id="hirms_member"
+              name="Members"
+              parent="hirms_membership_root"
+              action="member_action"
+              sequence="400"
+    />
 </odoo>

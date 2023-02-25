@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Member form view-->
+    <record id="hirms_member_form" model="ir.ui.view">
+        <field name="name">hirms.member.form</field>
+        <field name="model">hirms.insured</field>  
+        <field name="arch" type="xml">
+            <form string="Member form">
+                   <group string="Member Identification" col="4">
+                       <field name="insured_seq"/>
+                       <field name="name" required="True"/>
+                       <field name="gender"/>
+                       <field name="dob"/>
+                       <field name="bloodGroup"/>
+                   </group>
+                    <notebook>
+                        <page name="name" string="string">
+                            <field name="child_ids"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- Member tree view-->
+    <record id="member_tree" model="ir.ui.view">
+        <field name="name">hirms.member.tree</field>
+        <field name="model">hirms.insured</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="insured_seq"/>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="dob"/>
+                <field name="dor"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Action of member menu-->
+    <record model="ir.actions.act_window" id="member_action">
+        <field name="name">Member</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.insured</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create member
+            </p>
+            <p>
+                You can create members here.
+            </p>
+        </field>
+    </record>
+</odoo>

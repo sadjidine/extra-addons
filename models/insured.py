@@ -24,27 +24,23 @@ from odoo import models, fields, api
 from odoo.tools.populate import compute
 from odoo.tools.translate import _
 
+
 class Insured(models.Model):
     _name = 'hirms.insured'
-    _description = 'insured'
-    inherits = {'res.partner': "partner_id"}
+    _description = 'insured patients'
+    _inherits = {'res.partner': "partner_id"}
 
     partner_id = fields.Many2one(
         'res.partner',
         ondelete='cascade',
-        # required=True,
+        required=True,
     )
-    name = fields.Char(
-        string="Insured Name",
-        compute='_compute_name',
-        store=True,
-    )
-    firstName = fields.Char(
-        string='First name'
-    )
-    lastName = fields.Char(
-        string='Last name'
-    )
+    # firstName = fields.Char(
+    #     string='First name'
+    # )
+    # lastName = fields.Char(
+    #     string='Last name'
+    # )
     gender = fields.Selection(
         [
             ('male', 'Male'),
@@ -106,22 +102,22 @@ class Insured(models.Model):
         comodel_name='hirms.insured',
         inverse_name='parent_id',
         string='Assigns',
-        help="Assigns depending on memeber!"
+        help="Assigns depending on member!"
     )
     active = fields.Boolean(
         default=True,
     )
 
-    @api.depends('firstName', 'lastName')
+    @api.depends('name')
     def _compute_name(self):
         for rec in self:
-            if rec.firstName and rec.lastName:
+            if rec.name:
                 rec.name = rec.firstName.strip() + ' ' + rec.lastName.strip()
 
     def name_get(self):
         res = []
         for rec in self:
-            rec_name = rec.firstName.strip() + ' ' + rec.lastName.strip()
+            rec_name = rec.name.strip()
             res.append((rec.id, "%s (%s)" % (rec_name, rec.insured_seq)))
         return res
 
