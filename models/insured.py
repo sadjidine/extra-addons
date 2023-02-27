@@ -91,7 +91,8 @@ class Insured(models.Model):
     def _compute_name(self):
         for rec in self:
             if rec.name:
-                rec.name = rec.name.strip()
+                name = rec.name.strip()
+                rec.name = name
 
     def name_get(self):
         res = []
