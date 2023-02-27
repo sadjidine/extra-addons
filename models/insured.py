@@ -30,38 +30,17 @@ class Insured(models.Model):
     _description = 'insured patients'
     _inherits = {'res.partner': "partner_id"}
 
-    partner_id = fields.Many2one(
-        'res.partner',
-        ondelete='cascade',
-        required=True,
-    )
-    # firstName = fields.Char(
-    #     string='First name'
-    # )
-    # lastName = fields.Char(
-    #     string='Last name'
-    # )
+    partner_id = fields.Many2one('res.partner', ondelete='cascade', required=True )
     gender = fields.Selection(
         [
             ('male', 'Male'),
             ('female', 'Female'),
         ]
     )
-    dob = fields.Date(
-        string='Date of Birth',
-        required=True,
-    )
-    dor = fields.Date(
-        string='Date of registration',
-        default=fields.Date.today(),
-    )
-    doreact = fields.Date(
-        string='Date of reactivation',
-        help='Date of reactivation',
-    )
-    dod = fields.Date(
-        string='Date of death'
-    )
+    date_birth = fields.Date(string='Date of Birth', required=True)
+    date_registration = fields.Date(string='Date of registration', default=fields.Date.today())
+    date_reactivation = fields.Date(string='Date of reactivation', help='Date of reactivation')
+    date_death = fields.Date(string='Date of death')
     relationship = fields.Selection(
         [
             ('member', 'Member'),
@@ -92,7 +71,7 @@ class Insured(models.Model):
         default=lambda self: _('New')
     )
     parent_id = fields.Many2one(
-        string='Related member',
+        string='Related Member',
         comodel_name='hirms.insured',
         ondelete='restrict',
         index=True,
@@ -112,7 +91,7 @@ class Insured(models.Model):
     def _compute_name(self):
         for rec in self:
             if rec.name:
-                rec.name = rec.firstName.strip() + ' ' + rec.lastName.strip()
+                rec.name = rec.name.strip()
 
     def name_get(self):
         res = []
