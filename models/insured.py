@@ -30,11 +30,12 @@ class Insured(models.Model):
     _description = 'insured patients'
     _inherits = {'res.partner': "partner_id"}
 
-    partner_id = fields.Many2one('res.partner', ondelete='cascade', required=True )
+    partner_id = fields.Many2one('res.partner', ondelete='cascade', required=True)
     gender = fields.Selection(
         [
             ('male', 'Male'),
             ('female', 'Female'),
+            ('other', 'Other'),
         ]
     )
     date_birth = fields.Date(string='Date of Birth', required=True)

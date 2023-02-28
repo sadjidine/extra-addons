@@ -117,9 +117,9 @@ class Policy(models.Model):
         default=0,
         help="Define the maximum age (years) for someone to subscribe a membership...",
     )
-    maxi_spouse_age = fields.Integer(
+    maxi_conjunct_age = fields.Integer(
         default=0,
-        help="Define the maximum age (years) for someone to enroll as spouse declared by a member...",
+        help="Define the maximum age (years) for someone to enroll as conjunct declared by a member...",
     )
     maxi_child_age = fields.Integer(
         default=0,
@@ -141,13 +141,13 @@ class Policy(models.Model):
         default=0,
         help="Define age of majority for children allowed...",
     )
-    spouse_limit = fields.Integer(
+    conjunct_limit = fields.Integer(
         default=0,
-        help="Define the number of limit allowed for declared spouse ...",
+        help="Define the number of limit allowed for declared conjunct ...",
     )
-    spouse_add_allowed = fields.Integer(
+    conjunct_add_allowed = fields.Integer(
         default=0,
-        help="Define the number of additional spouse(s) allowed...",
+        help="Define the number of additional conjunct(s) allowed...",
     )
     filiation_limit = fields.Integer(
         default=0,
@@ -297,11 +297,11 @@ class CategoryControl(models.Model):
     family_status = fields.Selection(
         selection=[
             ('member', 'Member'),
-            ('spouse', 'Spouse'),
+            ('conjunct', 'conjunct'),
             ('child', 'Child'),
-            ('member_spouse', 'Member + Spouse'),
+            ('member_conjunct', 'Member + conjunct'),
             ('member_child', 'Member + Child'),
-            ('spouse_child', 'Spouse + Child'),
+            ('conjunct_child', 'conjunct + Child'),
             ('all', 'All'),
         ],
         default='all',
