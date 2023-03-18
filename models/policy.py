@@ -190,10 +190,7 @@ class Policy(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Html('Note', sanitize_style=True)
 
     _sql_constraints = [
         (
@@ -262,7 +259,7 @@ class CodeControl(models.Model):
     _sql_constraints = [
         (
             'codification_policy_uniq',
-            'unique(codification_id, policy_id)',
+            'unique(medical_code_id, policy_id)',
             'Medical code related to policy must be unique'
         )
     ]

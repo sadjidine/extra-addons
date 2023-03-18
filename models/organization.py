@@ -23,27 +23,25 @@
 from odoo import models, fields, api
 
 
-class CareProvider(models.Model):
-    _name = 'hirms.provider'
-    _description = 'medical care providers'
+class Organization(models.Model):
+    _name = 'hirms.organization'
+    _description = 'Administrative Groups'
 
     name = fields.Char(
-        string="Category",
+        string="Organization unit",
+        size=68,
         required=True,
     )
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Text('Note')
 
     _sql_constraints = [
         (
             'name_uniq',
             'unique(name)',
-            'Category name must be unique'
+            'This administrative group already exist and must be unique!'
         ),
     ]
 

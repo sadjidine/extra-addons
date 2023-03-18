@@ -20,16 +20,22 @@
 #
 #############################################################################
 from . import company
-from . import insured
 from . import category
-from . import speciality
+from . import specialization
 from . import pathology
 from . import codification
 from . import medicine
 from . import medication
+from . import blood
 from . import district
 from . import department
 from . import locality
 from . import exercise
+from . import organization
+from . import penalization
+from . import schooling
+from . import decease
+from . import insured
 from . import policy
+# from . import subscription
 

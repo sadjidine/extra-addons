@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- New subscription wizard form view-->
+    <record id="new_subscription_wizard_form" model="ir.ui.view">
+        <field name="name">hirms.subscription.wizard.form</field>
+        <field name="model">hirms.subscription.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            <field name="firstname" placeholder="First Name"/>
+                            <field name="lastname" placeholder="Last Name"/>
+                        </h3>
+                    </div>
+                    <newline/>
+                    <group>
+                        <group>
+                            <field name="date_birth"/>
+                            <field name="gender"/>
+                            <field name="administrative_ref"/>
+                            <field name="profession"/>
+                            <field name="external_id"/>
+                        </group>
+                        <group>
+                            <field name="api_external_id"/>
+                            <field name="policy_id"/>
+                            <field name="locality_id"/>
+                            <field name="group_id"/>
+                            <field name="start_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer class="oe_left">
+                    <button name="subscription_wizard"
+                            type="object"
+                            string="Validate"
+                            class="btn btn-primary"
+                    />
+                    <button string="Cancel"
+                            class="btn btn-default"
+                            special="cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--    Action subscription wizard menu-->
+    <act_window id="new_subscription_wizard_action" name="New Subscription Wizard"
+                res_model="hirms.subscription.wizard"
+                view_mode="form" target="new"
+    />
+</odoo>

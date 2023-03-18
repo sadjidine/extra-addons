@@ -68,10 +68,7 @@ class Medicine(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Text('Note')
 
     _sql_constraints = [
         (

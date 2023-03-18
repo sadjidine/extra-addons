@@ -6,18 +6,78 @@
         <field name="model">hirms.insured</field>  
         <field name="arch" type="xml">
             <form string="Member form">
-                   <group string="Member Identification" col="4">
-                       <field name="insured_seq"/>
-                       <field name="name" required="True"/>
-                       <field name="gender"/>
-                       <field name="dob"/>
-                       <field name="bloodGroup"/>
-                   </group>
+                <sheet>
+                    <field name="avatar_128" invisible="1"/>
+                    <field name="insured_seq" invisible="1"/>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
+                    <field name="name" invisible="1"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="insured_seq"/>
+                        </h1>
+                        <h2 class="text-primary">
+                            <field name="fullname" readonly="1"/>
+                        </h2>
+                        <h3 class="oe_edit_only">
+                            <field name="lastname" placeholder="Last Name"/>
+                            <field name="firstname" placeholder="First Name"/>
+                        </h3>
+                    </div>
+                    <newline/>
+                    <group>
+                        <group>
+                            <field name="date_birth"/>
+                            <field name="gender"/>
+                            <field name="policy_id"/>
+                            <field name="date_activation" required="1"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                            <field name="blood_group"/>
+                            <field name="risk_id"/>
+                        </group>
+                    </group>
                     <notebook>
-                        <page name="name" string="string">
-                            <field name="child_ids"/>
+                        <page name="name" string="Declared Assigns">
+                            <field name="family_ids">
+                                <tree>
+                                    <field name="id_code"/>
+                                    <field name="name"/>
+                                    <field name="relationship"/>
+                                    <field name="date_birth"/>
+                                    <field name="date_registration"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="personal" string="Personal">
+                            <group>
+                                <group>
+                                    <label for="street" string="Address"/>
+                                    <div class="o_address_format">
+                                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                                        <field name="street2" placeholder="Street 2..."
+                                               class="o_address_street"/>
+                                        <field name="city" placeholder="City" class="o_address_city"/>
+                                        <field name="state_id" class="o_address_state" placeholder="State"
+                                               options='{"no_open": True}'/>
+                                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                        <field name="country_id" placeholder="Country" class="o_address_country"
+                                               options='{"no_open": True, "no_create": True}'/>
+                                    </div>
+                                    <field name="phone"/>
+                                    <field name="mobile"/>
+                                    <field name="email"/>
+                                </group>
+                                <group>
+                                    <field name="profession"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Note &amp; Description">
+                            <field name="note"/>
                         </page>
                     </notebook>
+                </sheet>
             </form>
         </field>
     </record>
@@ -30,8 +90,9 @@
                 <field name="insured_seq"/>
                 <field name="name"/>
                 <field name="gender"/>
-                <field name="dob"/>
-                <field name="dor"/>
+                <field name="date_birth"/>
+                <field name="age"/>
+                <field name="date_registration"/>
             </tree>
         </field>
     </record>

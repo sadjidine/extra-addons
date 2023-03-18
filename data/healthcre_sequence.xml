@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="hirms_healthcare_seq" model="ir.sequence">
+            <field name="name">Healthcare Sequence</field>
+            <field name="code">hirms.healthcare</field>
+            <field name="prefix"></field>
+            <field name="padding">9</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

@@ -35,10 +35,7 @@ class Molecule(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Html('Note', sanitize_style=True)
 
     _sql_constraints = [
         (
@@ -61,10 +58,7 @@ class MedicationForm(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Html('Note', sanitize_style=True)
 
     _sql_constraints = [
         (
@@ -83,10 +77,7 @@ class TherapeuticRoute(models.Model):
         size=128,
         required=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Html('Note', sanitize_style=True)
 
     _sql_constraints = [
         (
@@ -153,10 +144,7 @@ class Medication(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Text('Note')
 
     _sql_constraints = [
         (

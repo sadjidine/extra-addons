@@ -19,28 +19,34 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
+from odoo import models, fields
 
-from odoo import models, fields, api
 
+class Blood(models.Model):
+    _name = 'hirms.blood'
+    _description = 'Blood Group'
+    _rec_name = 'blood_grp'
 
-class Speciality(models.Model):
-    _name = 'hirms.speciality'
-    _description = 'medical specialities'
-
-    name = fields.Char(
-        string="Speciality label",
-        required=True,
-    )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
-
+    blood_grp = fields.Char(string="Blood Group", required="True")
+    note = fields.Text('Note')
     _sql_constraints = [
-        (
-            'name_uniq',
-            'unique(name)',
-            'Speciality name must be unique'
-        ),
+        ('unique_blood',
+         'unique (blood_grp)',
+         'Blood group already present!'
+         )
     ]
 
+
+class GeneticRisks(models.Model):
+    _name = 'hirms.genetic.risks'
+    _description = ' Genetic Risks'
+    _rec_name = 'risks'
+
+    risks = fields.Char(string="Genetic Risks", required="True")
+    note = fields.Text('Note')
+    _sql_constraints = [
+        ('unique_risks',
+         'unique (risks)',
+         'This Genetic risks already present!'
+         )
+    ]

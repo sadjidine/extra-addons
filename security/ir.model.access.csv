@@ -18,3 +18,9 @@ access_policy_user,Policy User Access,model_hirms_policy,base.group_user,1,1,1,0
 access_code_control_user,Code Control User Access,model_hirms_code_control,base.group_user,1,1,1,0
 access_category_control_user,Category Control User Access,model_hirms_category_control,base.group_user,1,1,1,0
 access_pathology_control_user,Pathology Control User Access,model_hirms_pathology_control,base.group_user,1,1,1,0
+access_group_control_user,Group Control User Access,model_hirms_group,base.group_user,1,1,1,0
+access_schooling_control_user,Schooling Control User Access,model_hirms_schooling,base.group_user,1,1,1,0
+access_penalization_control_user,Penalization Control User Access,model_hirms_penalization,base.group_user,1,1,1,0
+access_decease_control_user,Decease Control User Access,model_hirms_decease,base.group_user,1,1,1,0
+access_blood_control_user,Blood Control User Access,model_hirms_blood,base.group_user,1,1,1,0
+access_genetic_risks_control_user,Genetic Risks Control User Access,model_hirms_genetic_risks,base.group_user,1,1,1,0

@@ -36,10 +36,7 @@ class ResCompany(models.Model):
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text(
-        string="Note & description",
-        required=False,
-    )
+    note = fields.Html('Note', sanitize_style=True)
 
     _sql_constraints = [
         (

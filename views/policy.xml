@@ -18,9 +18,9 @@
                         <page string="1. General Conditions To Apply">
                             <group col="8" colspan="2" >
                                 <field name="maxi_member_age"/>
-                                <field name="maxi_spouse_age"/>
-                                <field name="spouse_limit"/>
-                                <field name="spouse_add_allowed"/>
+                                <field name="maxi_conjunct_age"/>
+                                <field name="conjunct_limit"/>
+                                <field name="conjunct_add_allowed"/>
                                 <field name="maxi_child_age"/>
                                 <field name="children_limit"/>
                                 <field name="children_add_allowed"/>

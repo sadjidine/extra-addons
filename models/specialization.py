@@ -23,44 +23,24 @@
 from odoo import models, fields, api
 
 
-class Pathology(models.Model):
-    _name = 'hirms.pathology'
-    _description = 'medical pathologies'
-    _rec_name = 'code'
+class Specialization(models.Model):
+    _name = 'hirms.specialization'
+    _description = 'medical specializations'
 
     name = fields.Char(
-        string="Pathology",
+        string="Specialization",
         required=True,
     )
-    code = fields.Char(
-        string="Code",
-        required=True,
+    note = fields.Text(
+        string="Note & description",
+        required=False,
     )
-    speciality_id = fields.Many2one(
-        comodel_name="hirms.specialization",
-        string="Related Specialization",
-        ondelete="restrict",
-        required=True,
-    )
-    chronic = fields.Boolean(
-        string="Chronic?",
-        help="Check to set this pathology as chronic!"
-    )
-    active = fields.Boolean(
-        default=True,
-    )
-    note = fields.Text('Note')
 
     _sql_constraints = [
         (
             'name_uniq',
             'unique(name)',
-            'Pathology Code must be unique'
-        ),
-        (
-            'code_uniq',
-            'unique(code)',
-            'Pathology Name must be unique'
+            'Specialization name must be unique'
         ),
     ]
 

@@ -23,44 +23,54 @@
 from odoo import models, fields, api
 
 
-class Pathology(models.Model):
-    _name = 'hirms.pathology'
-    _description = 'medical pathologies'
-    _rec_name = 'code'
+class Schooling(models.Model):
+    _name = 'hirms.schooling'
+    _description = 'Child Schooling certificates'
 
     name = fields.Char(
-        string="Pathology",
+        string="Category",
         required=True,
-    )
-    code = fields.Char(
-        string="Code",
-        required=True,
-    )
-    speciality_id = fields.Many2one(
-        comodel_name="hirms.specialization",
-        string="Related Specialization",
-        ondelete="restrict",
-        required=True,
-    )
-    chronic = fields.Boolean(
-        string="Chronic?",
-        help="Check to set this pathology as chronic!"
     )
     active = fields.Boolean(
         default=True,
     )
-    note = fields.Text('Note')
+    note = fields.Text(
+        string="Note & description",
+        required=False,
+    )
 
     _sql_constraints = [
         (
             'name_uniq',
             'unique(name)',
-            'Pathology Code must be unique'
-        ),
-        (
-            'code_uniq',
-            'unique(code)',
-            'Pathology Name must be unique'
+            'Category name must be unique'
         ),
     ]
+
+
+class SchoolingWizard(models.TransientModel):
+    _name = 'hirms.schooling.wizard'
+    _description = 'Schooling Wizard'
+
+    child_id_code = fields.Char(
+        required=True,
+        help="Please, provide identification code for the child."
+    )
+
+    def opem_popup(self):
+        """
+        This method is used to create a popup for the child schooling wizard.
+        """
+        self.ensure_one()
+        insured = self.env['hirms.insured'].search([
+            '|', ('id_code', '=ilike', self.child_id_code),
+            ('external_id', '=ilike', self.child_id_code),
+        ])
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_model': 'hirms.schooling',
+            'view_id': self.child_id_code,
+        }
 

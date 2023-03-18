@@ -118,10 +118,21 @@
               parent="hirms_root"
               sequence="40"
     />
+<!--    <menuitem id="hirms_subscription_root"-->
+<!--              name="Subscriptions Management"-->
+<!--              parent="hirms_membership_root"-->
+<!--              sequence="41"-->
+<!--    />-->
+<!--    <menuitem id="hirms_subscription"-->
+<!--              name="Create new subscription"-->
+<!--              parent="hirms_subscription_root"-->
+<!--              action="new_subscription_wizard_action"-->
+<!--              sequence="410"-->
+<!--    />-->
     <menuitem id="hirms_member"
-              name="Members"
+              name="Members (Subscribers)"
               parent="hirms_membership_root"
               action="member_action"
-              sequence="400"
+              sequence="420"
     />
 </odoo>
