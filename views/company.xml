@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- District form view-->
+    <!-- Company form view-->
     <record id="view_res_company_form" model="ir.ui.view">
         <field name="name">res.company.form</field>
         <field name="model">res.company</field>
@@ -20,18 +20,18 @@
             </notebook>
         </field>
     </record>
-    <!--    Action of Organisation menu-->
-    <record model="ir.actions.act_window" id="organisation_action">
-        <field name="name">Organisations Management</field>
+    <!--    Action of Company menu-->
+    <record model="ir.actions.act_window" id="company_action">
+        <field name="name">Company Management</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.company</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create new organisation record...
+                Create new company record...
             </p>
             <p>
-                You can create organisations data here.
+                You can create companies data here.
             </p>
         </field>
     </record>

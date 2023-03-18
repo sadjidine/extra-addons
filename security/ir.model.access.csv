@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_insured_user,Insured User Access,model_hirms_insured,base.group_user,1,1,1,0
 access_category_user,Category User Access,model_hirms_category,base.group_user,1,1,1,0
-access_speciality_user,Speciality User Access,model_hirms_speciality,base.group_user,1,1,1,0
+access_specialization_user,Specialization User Access,model_hirms_specialization,base.group_user,1,1,1,0
 access_pathology_user,Pathology User Access,model_hirms_pathology,base.group_user,1,1,1,0
 access_codification_user,Codification User Access,model_hirms_codification,base.group_user,1,1,1,0
 access_molecule_user,Molecule User Access,model_hirms_molecule,base.group_user,1,1,1,0
@@ -18,7 +18,7 @@ access_policy_user,Policy User Access,model_hirms_policy,base.group_user,1,1,1,0
 access_code_control_user,Code Control User Access,model_hirms_code_control,base.group_user,1,1,1,0
 access_category_control_user,Category Control User Access,model_hirms_category_control,base.group_user,1,1,1,0
 access_pathology_control_user,Pathology Control User Access,model_hirms_pathology_control,base.group_user,1,1,1,0
-access_group_control_user,Group Control User Access,model_hirms_group,base.group_user,1,1,1,0
+access_group_control_user,Organization Control User Access,model_hirms_organization,base.group_user,1,1,1,0
 access_schooling_control_user,Schooling Control User Access,model_hirms_schooling,base.group_user,1,1,1,0
 access_penalization_control_user,Penalization Control User Access,model_hirms_penalization,base.group_user,1,1,1,0
 access_decease_control_user,Decease Control User Access,model_hirms_decease,base.group_user,1,1,1,0

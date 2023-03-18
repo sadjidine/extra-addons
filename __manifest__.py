@@ -47,6 +47,7 @@
         'views/department.xml',
         'views/locality.xml',
         'views/category.xml',
+        'views/organization.xml',
         'views/speciality.xml',
         'views/codification.xml',
         'views/medicine.xml',

@@ -9,130 +9,125 @@
               sequence="0"
               web_icon="hirms,static/description/icon.png"
     />
-    <menuitem id="hirms_settings_root"
-              name="Settings"
+    <menuitem id="hirms_membership_root"
+              name="Membership"
               parent="hirms_root"
-              sequence="10"
+              sequence="2"
     />
-    <menuitem id="hirms_general_settings"
-              name="General Settings"
-              parent="hirms_settings_root"
-              sequence="100"
-    />
-    <menuitem id="hirms_config_organisation"
-              name="Organisations"
-              parent="hirms_general_settings"
-              action="organisation_action"
-              sequence="101"
-    />
-    <menuitem id="hirms_config_district"
-              name="Districts"
-              parent="hirms_general_settings"
-              action="district_action"
-              sequence="102"
-    />
-    <menuitem id="hirms_config_department"
-              name="Departments"
-              parent="hirms_general_settings"
-              action="department_action"
-              sequence="103"
-    />
-    <menuitem id="hirms_config_locality"
-              name="Localities"
-              parent="hirms_general_settings"
-              action="locality_action"
-              sequence="104"
-    />
-    <menuitem id="hirms_medical_settings"
-              name="Medical Settings"
-              parent="hirms_settings_root"
-              sequence="11"
-    />
-    <menuitem id="hirms_config_category"
-              name="Categories"
-              parent="hirms_medical_settings"
-              action="category_action"
-              sequence="111"
-    />
-    <menuitem id="hirms_config_speciality"
-              name="Specialities"
-              parent="hirms_medical_settings"
-              action="speciality_action"
-              sequence="112"
-    />
-    <menuitem id="hirms_config_codification"
-              name="Codifications"
-              parent="hirms_medical_settings"
-              action="codification_action"
-              sequence="113"
-    />
-    <menuitem id="hirms_config_medicine"
-              name="Medicine Services"
-              parent="hirms_medical_settings"
-              action="medicine_action"
-              sequence="114"
-    />
-    <menuitem id="hirms_config_pathology"
-              name="Pathologies"
-              parent="hirms_medical_settings"
-              action="pathology_action"
-              sequence="115"
-    />
-    <menuitem id="hirms_config_molecule"
-              name="Molecules"
-              parent="hirms_medical_settings"
-              action="molecule_action"
-              sequence="116"
-    />
-    <menuitem id="hirms_config_medication_form"
-              name="Medication Forms"
-              parent="hirms_medical_settings"
-              action="medication_form_action"
-              sequence="117"
-    />
-    <menuitem id="hirms_config_therapeutic_route"
-              name="Therapeutic Routes"
-              parent="hirms_medical_settings"
-              action="therapeutic_route_action"
-              sequence="118"
-    />
-    <menuitem id="hirms_config_medication"
-              name="Medication"
-              parent="hirms_medical_settings"
-              action="medication_action"
-              sequence="119"
+    <menuitem id="hirms_member"
+              name="Members (Subscribers)"
+              parent="hirms_membership_root"
+              action="member_action"
+              sequence="20"
     />
     <menuitem id="hirms_health_risk_root"
     name="Health Risks Portfolio"
     parent="hirms_root"
-    sequence="12"
+    sequence="4"
     />
     <menuitem id="hirms_health_risk_policy"
               name="Insurance Policies"
               parent="hirms_health_risk_root"
               action="policy_action"
-              sequence="121"
-    />
-    <menuitem id="hirms_membership_root"
-              name="Membership"
-              parent="hirms_root"
               sequence="40"
     />
-<!--    <menuitem id="hirms_subscription_root"-->
-<!--              name="Subscriptions Management"-->
-<!--              parent="hirms_membership_root"-->
-<!--              sequence="41"-->
-<!--    />-->
-<!--    <menuitem id="hirms_subscription"-->
-<!--              name="Create new subscription"-->
-<!--              parent="hirms_subscription_root"-->
-<!--              action="new_subscription_wizard_action"-->
-<!--              sequence="410"-->
-<!--    />-->
-    <menuitem id="hirms_member"
-              name="Members (Subscribers)"
-              parent="hirms_membership_root"
-              action="member_action"
-              sequence="420"
+    <menuitem id="hirms_settings_root"
+              name="Settings"
+              parent="hirms_root"
+              sequence="5"
+    />
+    <menuitem id="hirms_general_settings"
+              name="General Settings"
+              parent="hirms_settings_root"
+              sequence="50"
+    />
+    <menuitem id="hirms_config_organisation"
+              name="Company"
+              parent="hirms_general_settings"
+              action="company_action"
+              sequence="501"
+    />
+    <menuitem id="hirms_config_district"
+              name="Districts"
+              parent="hirms_general_settings"
+              action="district_action"
+              sequence="502"
+    />
+    <menuitem id="hirms_config_department"
+              name="Departments"
+              parent="hirms_general_settings"
+              action="department_action"
+              sequence="503"
+    />
+    <menuitem id="hirms_config_locality"
+              name="Localities"
+              parent="hirms_general_settings"
+              action="locality_action"
+              sequence="504"
+    />
+    <menuitem id="hirms_config_organization"
+              name="Organization Units"
+              parent="hirms_general_settings"
+              action="organization_action"
+              sequence="505"
+    />
+    <menuitem id="hirms_medical_settings"
+              name="Medical Settings"
+              parent="hirms_settings_root"
+              sequence="51"
+    />
+    <menuitem id="hirms_config_category"
+              name="Categories"
+              parent="hirms_medical_settings"
+              action="category_action"
+              sequence="510"
+    />
+    <menuitem id="hirms_config_speciality"
+              name="Specialities"
+              parent="hirms_medical_settings"
+              action="speciality_action"
+              sequence="511"
+    />
+    <menuitem id="hirms_config_codification"
+              name="Codifications"
+              parent="hirms_medical_settings"
+              action="codification_action"
+              sequence="512"
+    />
+    <menuitem id="hirms_config_medicine"
+              name="Medicine Services"
+              parent="hirms_medical_settings"
+              action="medicine_action"
+              sequence="513"
+    />
+    <menuitem id="hirms_config_pathology"
+              name="Pathologies"
+              parent="hirms_medical_settings"
+              action="pathology_action"
+              sequence="514"
+    />
+    <menuitem id="hirms_config_molecule"
+              name="Molecules"
+              parent="hirms_medical_settings"
+              action="molecule_action"
+              sequence="515"
+    />
+    <menuitem id="hirms_config_medication_form"
+              name="Medication Forms"
+              parent="hirms_medical_settings"
+              action="medication_form_action"
+              sequence="516"
+    />
+    <menuitem id="hirms_config_therapeutic_route"
+              name="Therapeutic Routes"
+              parent="hirms_medical_settings"
+              action="therapeutic_route_action"
+              sequence="517"
+    />
+    <menuitem id="hirms_config_medication"
+              name="Medication"
+              parent="hirms_medical_settings"
+              action="medication_action"
+              sequence="518"
     />
 </odoo>

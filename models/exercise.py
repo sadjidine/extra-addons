@@ -42,7 +42,7 @@ class Exercise(models.Model):
         required=True,
     )
     date_end = fields.Date(
-        string="end Date",
+        string="End Date",
         required=True,
     )
     medical_care_validity = fields.Integer(

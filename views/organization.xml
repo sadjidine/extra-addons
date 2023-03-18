@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Speciality form view-->
-    <record id="speciality_form" model="ir.ui.view">
-        <field name="name">hirms.speciality.form</field>
-        <field name="model">hirms.specialization</field>
+    <!-- Category form view-->
+    <record id="organization_form" model="ir.ui.view">
+        <field name="name">hirms.organization.form</field>
+        <field name="model">hirms.organization</field>
         <field name="arch" type="xml">
-            <form string="Speciality form">
-                    <group string="Speciality Data Record">
-                        <group string="Speciality data record">
+            <form string="Organization form">
+                    <group string="Organization Data Record">
+                        <group>
                             <field name="name"/>
                         </group>
                     </group>
@@ -19,10 +19,10 @@
             </form>
         </field>
     </record>
-    <!-- Speciality tree view-->
-    <record id="speciality_tree" model="ir.ui.view">
-        <field name="name">hirms.speciality.tree</field>
-        <field name="model">hirms.specialization</field>
+    <!-- Category tree view-->
+    <record id="corganization_tree" model="ir.ui.view">
+        <field name="name">hirms.organization.tree</field>
+        <field name="model">hirms.organization</field>
         <field name="arch" type="xml">
             <tree sample="1">
                 <field name="name"/>
@@ -30,18 +30,18 @@
             </tree>
         </field>
     </record>
-    <!--    Action of speciality menu-->
-    <record model="ir.actions.act_window" id="speciality_action">
-        <field name="name">Specialities Management</field>
+    <!--    Action of organization menu-->
+    <record model="ir.actions.act_window" id="organization_action">
+        <field name="name">Organization Unit Management</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hirms.specialization</field>
+        <field name="res_model">hirms.organization</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create new speciality record...
+                Create new organization unit record...
             </p>
             <p>
-                You can create specialities data here.
+                You can create organization units data here.
             </p>
         </field>
     </record>
