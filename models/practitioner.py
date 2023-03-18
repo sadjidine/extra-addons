@@ -68,7 +68,7 @@ class Practitioner(models.Model):
     corp_ref = fields.Char(string="Corp. ref.", size=32, required=False)
     firstname = fields.Char(string="First Name", size=128, required=True)
     lastname = fields.Char(string="Last Name", size=32, required=True)
-    fullname = fields.Char(string="Name", compute="_get_full_name")
+    fullname = fields.Char(string="FullName", compute="_get_full_name")
     gender = fields.Selection(
         [
             ('male', 'Male'),
@@ -80,8 +80,8 @@ class Practitioner(models.Model):
 
     @api.onchange('firstname', 'lastname')
     def _get_full_name(self):
-        firstname = False
-        lastname = False
+        firstname = ''
+        lastname = ''
         if self.firstname:
             firstname = self.firstname.lstrip().rstrip()
         if self.lastname:

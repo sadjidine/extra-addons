@@ -131,9 +131,9 @@ class SubscriptionWizard(models.TransientModel):
         string='Locality',
         required=False,
     )
-    group_id = fields.Many2one(
-        comodel_name='hirms.group',
-        string='Group',
+    organization_id = fields.Many2one(
+        comodel_name='hirms.organization',
+        string='Group unit',
         required=False
     )
     start_date = fields.Date(
@@ -155,7 +155,7 @@ class SubscriptionWizard(models.TransientModel):
                 'api_external_id': self.api_external_id,
                 'policy_id': self.policy_id.id,
                 'locality_id': self.locality_id.id,
-                'group_id': self.group_id.id,
+                'organization_id': self.organization_id_id.id,
                 'date_activation': self.start_date,
 
             }

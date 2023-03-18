@@ -37,5 +37,7 @@ from . import schooling
 from . import decease
 from . import insured
 from . import policy
-# from . import subscription
+from . import provider
+from . import practitioner
+from . import staff
 

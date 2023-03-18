@@ -60,8 +60,8 @@ class StaffWizard(models.Model):
         comodel_name='hirms.practitioner',
         string='Provider Staff',
         domain=[
-            ('is_provider', '=', True),
-            ('is_generic', '=', False)
+            ('provider', '=', True),
+            ('generic', '=', False)
         ]
     )
 

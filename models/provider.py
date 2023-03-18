@@ -87,25 +87,29 @@ class ResPartner(models.Model):
         default=False,
         help="Checked to define if the provider is a public institution..."
     )
-    is_provider = fields.Boolean(
+    provider = fields.Boolean(
         default=False,
         help="Checked to set partner as provider..."
     )
-    is_generic = fields.Boolean(
+    generic = fields.Boolean(
         default=False,
         help="Checked to set partner as generic provider..."
     )
-    is_practitioner = fields.Boolean(
+    practitioner = fields.Boolean(
         default=False,
         help="Checked to set partner as practitioner..."
     )
-    is_member = fields.Boolean(
+    member = fields.Boolean(
         default=False,
         help="Checked to set partner as member..."
     )
-    is_assign = fields.Boolean(
+    assign = fields.Boolean(
         default=False,
         help="Checked to set partner as assign..."
+    )
+    insured = fields.Boolean(
+        default=False,
+        help="Checked to set partner as insured..."
     )
     date_agreement = fields.Date(
         string='Date of agreement',

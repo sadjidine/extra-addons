@@ -40,7 +40,7 @@ class Insured(models.Model):
     )
     firstname = fields.Char(string="First Name", size=128, required=True)
     lastname = fields.Char(string="Last Name", size=32, required=True)
-    fullname = fields.Char(string="Name", compute="_get_full_name")
+    fullname = fields.Char(string="FullName", compute="_get_full_name")
     gender = fields.Selection(
         [
             ('male', 'Male'),
@@ -132,16 +132,21 @@ class Insured(models.Model):
     )
     age = fields.Integer(string="Age", compute='_compute_age', store=True)
     age_details = fields.Char(compute='_compute_age_details')
-    weight = fields.Integer('Insured weight', help="The weight in Kilogram (kg)")
-    height = fields.Integer('Insured height', help="The whight (in cemtimeter (cm)")
+    weight = fields.Integer('Weight(kg)', help="The weight in Kilogram (kg)")
+    height = fields.Integer('Height(cm)', help="The whight (in cemtimeter (cm)")
     bmi = fields.Float(
         string="BMI",
         digits=(4, 2),
         compute='_compute_bmi',
         help="Calculate the Body Mass Index"
     )
+    bmi_result = fields.Char(compute='_get_bmi_result')
     blood_group = fields.Many2one('hirms.blood', string="Blood Group")
     risk_id = fields.Many2one('hirms.genetic.risks', "Genetic Risks")
+    insured = fields.Boolean(
+        default=True,
+        help="Checked to set partner as insured..."
+    )
     active = fields.Boolean(
         default=True,
     )
@@ -156,8 +161,8 @@ class Insured(models.Model):
 
     @api.onchange('firstname', 'lastname')
     def _get_full_name(self):
-        firstname = None
-        lastname = None
+        firstname = ''
+        lastname = ''
         if self.firstname:
             firstname = self.firstname.lstrip().rstrip()
         if self.lastname:
@@ -233,14 +238,33 @@ class Insured(models.Model):
             )
             rec.age_details = years_month_days
 
-    @api.depends('weight', 'height')
+    @api.onchange('weight', 'height')
     def _compute_bmi(self):
         """
         BMI calculation
         """
+        bmi = 0
+        if self.weight > 0 and self.height > 0:
+            bmi = (self.weight / ((self.height/100)**2))
+        self.bmi = bmi
+
+    @api.depends('bmi')
+    def _get_bmi_result(self):
         for rec in self:
-            if rec.weight and rec.height:
-                rec.bmi = (rec.weight / ((rec.height/100)**2))
+            result = ''
+            if rec.bmi < 18.5:
+                result = _('Underweight')
+            elif 18.5 <= rec.bmi <= 25:
+                result = _('Normal weight')
+            elif 25 < rec.bmi <= 30:
+                result = _('Overweight')
+            elif 30 < rec.bmi <= 35:
+                result = _('Moderate obesity')
+            elif 35 < rec.bmi <= 40:
+                result = _('Severe obesity')
+            elif rec.bmi > 40:
+                result = _('Morbid obesity')
+            rec.bmi_result = result
 
     @api.model
     def create(self, vals):
