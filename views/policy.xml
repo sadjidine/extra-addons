@@ -16,7 +16,7 @@
                     </group>
                     <notebook>
                         <page string="1. General Conditions To Apply">
-                            <group col="8" colspan="2" >
+                            <group col="12">
                                 <field name="maxi_member_age"/>
                                 <field name="maxi_conjunct_age"/>
                                 <field name="conjunct_limit"/>
@@ -105,8 +105,8 @@
         <field name="model">hirms.policy</field>
         <field name="arch" type="xml">
             <tree sample="1">
-                <field name="code"/>
                 <field name="name"/>
+                <field name="code"/>
                 <field name="active"/>
                 <field name="note"/>
             </tree>

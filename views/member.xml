@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Member form view-->
-    <record id="hirms_member_form" model="ir.ui.view">
+    <record id="member_form" model="ir.ui.view">
         <field name="name">hirms.member.form</field>
         <field name="model">hirms.insured</field>  
         <field name="arch" type="xml">
@@ -11,9 +11,10 @@
                     <field name="insured_seq" invisible="1"/>
                     <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
                     <field name="name" invisible="1"/>
+                    <field name="insured_seq" invisible="1"/>
                     <div class="oe_title">
                         <h1>
-                            <field name="insured_seq"/>
+                            <field name="id_code"/>
                         </h1>
                         <h2 class="text-primary">
                             <field name="fullname" readonly="1"/>
@@ -37,8 +38,8 @@
                         <field name="api_external_id"/>
                         <field name="locality_id"/>
                         <field name="organization_id"/>
-                        <field name="insured" readonly="1"/>
-                        <field name="member" readonly="1"/>
+                        <field name="insured" readonly="0"/>
+                        <field name="member" readonly="0"/>
                     </group>
                     <notebook>
                         <page name="name" string="Declared Assigns">
@@ -92,7 +93,7 @@
                             </group>
                         </page>
                         <page string="BMI Calculation">
-                            <group>
+                            <group col="6">
                                 <field name="weight"/>
                                 <field name="height"/>
                                 <field name="bmi" readonly="1"/>
@@ -113,14 +114,68 @@
         <field name="model">hirms.insured</field>
         <field name="arch" type="xml">
             <tree sample="1">
-                <field name="insured_seq"/>
+<!--                <field name="insured_seq"/>-->
+                <field name="id_code"/>
                 <field name="name"/>
                 <field name="gender"/>
                 <field name="date_birth"/>
                 <field name="age"/>
+                <field name="policy_id"/>
                 <field name="date_registration"/>
             </tree>
         </field>
+    </record>
+    <!-- Member Subscription Wizard form -->
+    <record id="member_subscription_form" model="ir.ui.view">
+        <field name="name">hirms.subscription.wizard.form</field>
+        <field name="model">hirms.subscription.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Member form">
+                <sheet>
+                    <div class="oe_title">
+                        <h2 class="text-primary">
+                            <field name="fullname" readonly="1"/>
+                        </h2>
+                        <h3 class="oe_edit_only">
+                            <field name="lastname" placeholder="Last Name"/>
+                            <field name="firstname" placeholder="First Name"/>
+                        </h3>
+                    </div>
+                    <newline/>
+                    <group col="6" colspan="2">
+                        <field name="date_birth"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="policy_id"/>
+                        <field name="start_date"/>
+                        <field name="administrative_ref"/>
+                        <field name="external_id"/>
+                        <field name="api_external_id"/>
+                        <field name="locality_id"/>
+                        <field name="organization_id"/>
+                        <field name="profession"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="subscription_wizard"
+                            string="Validate"
+                            class="btn btn-primary"
+                            type="object"
+                    />
+                    <button string="Cancel"
+                            special="cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--    Action of Subscription menu-->
+    <record model="ir.actions.act_window" id="subscription_action">
+        <field name="name">Member Subscription</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hirms.subscription.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
     <!--    Action of member menu-->
     <record model="ir.actions.act_window" id="member_action">

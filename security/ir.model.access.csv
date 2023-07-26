@@ -24,3 +24,4 @@ access_penalization_control_user,Penalization Control User Access,model_hirms_pe
 access_decease_control_user,Decease Control User Access,model_hirms_decease,base.group_user,1,1,1,0
 access_blood_control_user,Blood Control User Access,model_hirms_blood,base.group_user,1,1,1,0
 access_genetic_risks_control_user,Genetic Risks Control User Access,model_hirms_genetic_risks,base.group_user,1,1,1,0
+access_member_subscription_user,Member Subscription User Access,model_hirms_subscription_wizard,base.group_user,1,1,1,0

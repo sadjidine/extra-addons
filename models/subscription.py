@@ -167,7 +167,7 @@ class SubscriptionWizard(models.TransientModel):
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'view_type': 'form',
-            'res_model': 'hirms.subscription',
+            'res_model': 'hirms.insured',
             'context': {
                 'default_policy_id': self.policy_id.id,
                 'default_member_id': member_id.id,

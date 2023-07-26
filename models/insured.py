@@ -52,7 +52,7 @@ class Insured(models.Model):
     date_birth = fields.Date(string='Date of Birth', required=True)
     date_decease = fields.Date(string='Date of decease', compute="_get_decease_date", store=True)
     date_registration = fields.Date(string='Date of registration', default=fields.Date.today())
-    date_activation = fields.Date(string='Date of Activation', help='Date of reactivation')
+    date_activation = fields.Date(string='Date of Activation', help='Date of activation')
     date_reactivation = fields.Date(string='Date of reactivation', help='Date of reactivation')
     administrative_ref = fields.Char(required=False)
     profession = fields.Char(string="Profession", help="Insured Occupation")
@@ -63,6 +63,7 @@ class Insured(models.Model):
         readonly=True,
         index=True,
         compute="_get_id_code",
+        store=True,
         help="The system provides an incremental identification code for every created insured."
     )
     external_id = fields.Char(
@@ -171,13 +172,14 @@ class Insured(models.Model):
         self.fullname = self.name
 
     def _get_id_code(self):
-        self.ensure_one()
-        if not self.id_code and self.name:
-            name = self.name.strip()
+        # self.ensure_one()
+        for rec in self:
+            if not rec.id_code and rec.name:
+                name = rec.name.strip()
             name_tab = name.split(' ')
-            sequence = self.insured_seq[4:]
+            sequence = rec.insured_seq[4:]
             if len(name_tab) > 1:
-                self.id_code = sequence + name_tab[0][0] + name_tab[1][0]
+                rec.id_code = sequence + name_tab[0][0] + name_tab[1][0]
 
     @api.depends('relationship')
     def _get_family_status(self):
@@ -252,7 +254,9 @@ class Insured(models.Model):
     def _get_bmi_result(self):
         for rec in self:
             result = ''
-            if rec.bmi < 18.5:
+            if rec.bmi == 0:
+                result = _('Unknown')
+            elif rec.bmi < 18.5:
                 result = _('Underweight')
             elif 18.5 <= rec.bmi <= 25:
                 result = _('Normal weight')
@@ -273,5 +277,114 @@ class Insured(models.Model):
                 'hirms.insured') or _('New')
         result = super(Insured, self).create(vals)
         return result
+
+
+class SubscriptionWizard(models.TransientModel):
+    _name = 'hirms.subscription.wizard'
+    _description = 'Subscriptions wizard'
+
+    firstname = fields.Char(string="First Name", size=128, required=True)
+    lastname = fields.Char(string="Last Name", size=32, required=True)
+    fullname = fields.Char(string="FullName", compute="_get_full_name")
+    gender = fields.Selection(
+        [
+            ('male', 'Male'),
+            ('female', 'Female'),
+            ('other', 'Other'),
+        ],
+        required=True,
+    )
+    date_birth = fields.Date(string='Date of Birth', required=True)
+    age = fields.Integer(string="Age", compute='_compute_age')
+    administrative_ref = fields.Char(required=False)
+    profession = fields.Char(string="Profession", help="Insured Occupation")
+    external_id = fields.Char(
+        string='External Id.',
+        required=False
+    )
+    api_external_id = fields.Char(
+        string='API External Id.',
+        required=False
+    )
+    policy_id = fields.Many2one(
+        comodel_name='hirms.policy',
+        string='Policy',
+        required=True
+    )
+    locality_id = fields.Many2one(
+        comodel_name='hirms.locality',
+        string='Locality',
+        required=False,
+    )
+    organization_id = fields.Many2one(
+        comodel_name='hirms.organization',
+        string='Group unit',
+        required=False
+    )
+    start_date = fields.Date(
+        string='Start Date',
+        required=False,
+        help='Contract Start Date'
+    )
+
+    @api.onchange('firstname', 'lastname')
+    def _get_full_name(self):
+        firstname = ''
+        lastname = ''
+        if self.firstname:
+            firstname = self.firstname.lstrip().rstrip()
+        if self.lastname:
+            lastname = self.lastname.strip()
+        self.fullname  = "%s %s" % (lastname, firstname)
+
+    @api.depends('date_birth')
+    def _compute_age(self):
+        """
+        Age calculation of insured
+        """
+        for rec in self:
+            rec.age = 0
+            if rec.date_birth:
+                age = int((date.today() - rec.date_birth) // timedelta(days=365.2425))
+                rec.age = age
+
+    def subscription_wizard(self):
+        member = self.env['hirms.insured']
+        created_member = member.create(
+            {
+                'firstname': self.firstname,
+                'lastname': self.lastname,
+                'name': self.fullname,
+                'gender': self.gender,
+                'date_birth': self.date_birth,
+                'profession': self.profession,
+                'external_id': self.external_id,
+                'api_external_id': self.api_external_id,
+                'policy_id': self.policy_id.id,
+                'locality_id': self.locality_id.id if self.locality_id.id else '',
+                'organization_id': self.organization_id_id.id if self.organization_id.id else '',
+                'member': True,
+                'date_activation': self.start_date,
+
+            }
+        )
+        member_id = created_member.id
+        res_id = self.env['hirms.insured'].search([('id', '=', member_id)]).id
+        view_id = self.env.ref('hirms.member_form', False).id
+        action = {
+            'name': 'Create Member Subscription',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'target': 'current',
+            'views': [(view_id, 'form')],
+            'res_model': 'hirms.insured',
+            'view_id': view_id,
+            'res_id': res_id,
+            'context': {
+                # 'default_member_id': active_id,
+            }
+        }
+        return action
 
 

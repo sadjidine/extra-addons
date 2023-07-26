@@ -20,6 +20,12 @@
               action="member_action"
               sequence="20"
     />
+    <menuitem id="hirms_subscription"
+              name="New Subscription"
+              parent="hirms_membership_root"
+              action="subscription_action"
+              sequence="21"
+    />
     <menuitem id="hirms_health_risk_root"
     name="Health Risks Portfolio"
     parent="hirms_root"
@@ -28,8 +34,18 @@
     <menuitem id="hirms_health_risk_policy"
               name="Insurance Policies"
               parent="hirms_health_risk_root"
-              action="policy_action"
               sequence="40"
+    />
+    <menuitem id="hirms_insurance_policy"
+              name="Policies"
+              parent="hirms_health_risk_policy"
+              action="policy_action"
+              sequence="400"
+    />
+    <menuitem id="hirms_health_risk_network"
+              name="Healthcare Network"
+              parent="hirms_health_risk_root"
+              sequence="41"
     />
     <menuitem id="hirms_settings_root"
               name="Settings"
